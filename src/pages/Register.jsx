@@ -3,16 +3,28 @@ import { Link } from "react-router-dom";
 export default function Register() {
   return (
     <div className="register">
-      <h1>Register</h1>
-      <form>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" required />
+      <form className="register-form">
+        <h1>Register</h1>
 
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <fieldset>
+          <legend>Enter login*</legend>
+          <input type="text" id="login" />
+        </fieldset>
 
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+        <fieldset>
+          <legend>Enter email*</legend>
+          <input type="email" id="email" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Enter password*</legend>
+          <input type="password" id="password" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Repeat password*</legend>
+          <input type="password" id="repeat-password" />
+        </fieldset>
 
         <Link to="/login">I have an account</Link>
 

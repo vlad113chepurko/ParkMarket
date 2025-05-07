@@ -4,13 +4,16 @@ import { Link } from "react-router-dom";
 export default function Login() {
   return (
     <div className="login">
-      <h1>Login</h1>
-      <form>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+      <form className="login-form">
+        <h1>Login</h1>
+        <fieldset>
+          <legend>Enter login*</legend>
+          <input type="text" id="login" name="login" />
+        </fieldset>
+        <fieldset>
+          <legend>Enter password*</legend>
+          <input type="password" id="password" name="password" />
+        </fieldset>
 
         <Link to="/register">I don't have an account</Link>
 

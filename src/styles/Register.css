@@ -1,9 +1,74 @@
 .register {
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   background-color: var(--olive);
+}
+
+.register-form {
+  width: 400px;
+  height: auto;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: var(--camouflage);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: var(--darkvanilla);
+}
+
+.register-form fieldset {
+  border: 1px solid var(--olive);
+  margin-bottom: 1rem;
+}
+
+.register-form legend {
+  font-size: 1rem;
+  color: var(--darkvanilla);
+}
+
+.register-form input {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  color: var(--darkvanilla);
+  font-weight: bold;
+}
+
+.register-form a {
+  text-decoration: none;
+  color: var(--darkvanilla);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--darkvanilla);
+  color: var(--olive);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--grullo);
+  }
 }
