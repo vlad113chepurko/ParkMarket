@@ -16,7 +16,12 @@ function App() {
             }
           />
           <Route path="/" element={<components.home />} />
+          <Route path="/cart" element={<components.cart />} />
+          <Route path="/login" element={<components.login />} />
+          <Route path="/register" element={<components.register />} />
+          <Route path="/notfound" element={<components.notfound />} />
         </Routes>
+        <components.footer />
       </div>
     </Router>
   );
