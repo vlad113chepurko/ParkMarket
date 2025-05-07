@@ -5,7 +5,12 @@ export default function Header() {
     <header className="header">
       <div className="logo-container">
         <Link to="/">
-          <img className="logo" src="./ParkMarketLogo.svg" alt="logo" />
+          <img
+            title="home"
+            className="logo"
+            src="./ParkMarketLogo.svg"
+            alt="logo"
+          />
         </Link>
       </div>
       <div className="search-bar">
@@ -21,8 +26,9 @@ export default function Header() {
         <i className="cart-icon">
           <Link to="/cart">
             <img
+              title="cart"
               className="icon"
-              src="https://img.icons8.com/?size=100&id=ii6Lr4KivOiE&format=png&color=FFFFFF"
+              src="https://img.icons8.com/?size=100&id=ii6Lr4KivOiE&format=png&color=1A1A1A"
               alt="cart"
             />
           </Link>
@@ -30,8 +36,9 @@ export default function Header() {
         <i className="profile-icon">
           <Link to="/login">
             <img
+              title="user"
               className="icon"
-              src="https://img.icons8.com/?size=100&id=98957&format=png&color=FFFFFF"
+              src="https://img.icons8.com/?size=100&id=98957&format=png&color=1A1A1A"
               alt="user"
             />
           </Link>
