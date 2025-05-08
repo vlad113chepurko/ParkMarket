@@ -1,0 +1,64 @@
+{
+  "Products": {
+    "drinks": [
+      {
+        "id": 1,
+        "title": "Cola",
+        "price": 1.5,
+        "src": "/noImage.jpeg"
+      },
+      {
+        "id": 2,
+        "title": "Orange Juice",
+        "price": 2.0,
+        "src": "/noImage.jpeg"
+      },
+      {
+        "id": 3,
+        "title": "Mineral Water",
+        "price": 1.0,
+        "src": "/noImage.jpeg"
+      }
+    ],
+    "souvenirs": [
+      {
+        "id": 4,
+        "title": "Keychain",
+        "price": 3.0,
+        "src": "/noImage.jpeg"
+      },
+      {
+        "id": 5,
+        "title": "Magnet",
+        "price": 2.5,
+        "src": "/noImage.jpeg"
+      },
+      {
+        "id": 6,
+        "title": "T-Shirt",
+        "price": 10.0,
+        "src": "/noImage.jpeg"
+      }
+    ],
+    "children": [
+      {
+        "id": 7,
+        "title": "Toy Car",
+        "price": 5.0,
+        "src": "/noImage.jpeg"
+      },
+      {
+        "id": 8,
+        "title": "Coloring Book",
+        "price": 4.0,
+        "src": "/noImage.jpeg"
+      },
+      {
+        "id": 9,
+        "title": "Stuffed Bear",
+        "price": 8.0,
+        "src": "/noImage.jpeg"
+      }
+    ]
+  }
+}

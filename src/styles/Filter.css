@@ -1,0 +1,22 @@
+.filter {
+  height: 1000px;
+  width: 10%;
+  border-right: var(--darkvanilla) 2px solid;
+
+  padding: 0.5rem;
+}
+
+.filter h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.filter select {
+  width: 100%;
+  height: 30px;
+  background-color: var(--background-color);
+}
+
+.filter option {
+  background-color: var(--camouflage);
+}

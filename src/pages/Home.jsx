@@ -1,11 +1,15 @@
 import "../styles/Home.css";
+import Filter from "../components/Filter";
 
 export default function Home() {
   return (
-    <div className="home">
-      <h1>Welcome to ParkMarket</h1>
-      <p>Your one-stop solution for parking and marketplace needs.</p>
-      <p>Explore our features and services.</p>
+    <div className="main-wrapper ">
+      <Filter />
+      <div className="home">
+        <div className="home-container">
+          <h1>Home Page</h1>
+        </div>
+      </div>
     </div>
-  )
+  );
 }

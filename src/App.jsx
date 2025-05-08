@@ -1,4 +1,5 @@
-import { components } from "./urls/components.js";
+import { components, pages } from "./urls/url.js";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -7,19 +8,16 @@ function App() {
       <div>
         <components.header />
         <Routes>
+          <Route path="*" element={<pages.notfound />} />
+          <Route path="/" element={<pages.home />} />
+          <Route path="/cart" element={<pages.cart />} />
+          <Route path="/login" element={<pages.login />} />
+          <Route path="/register" element={<pages.register />} />
+          <Route path="/products" element={<pages.products />} />
           <Route
-            path="*"
-            element={
-              <div>
-                <h1>Erorr 404</h1>
-              </div>
-            }
+            path="/:category"
+            element={<pages.productspages />}
           />
-          <Route path="/" element={<components.home />} />
-          <Route path="/cart" element={<components.cart />} />
-          <Route path="/login" element={<components.login />} />
-          <Route path="/register" element={<components.register />} />
-          <Route path="/notfound" element={<components.notfound />} />
         </Routes>
         <components.footer />
       </div>
