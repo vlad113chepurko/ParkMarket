@@ -23,3 +23,13 @@ router.get('/souvenirs', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch souvenirs' });
   }
 });
+
+router.get('/children-items', verifyToken, async (req, res) => {
+  try {
+    const children_items = await Product.find({ category: 'Children items' });
+    res.status(200).json(children_items);
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).json({ error: 'Failed to fetch children items' });
+  }
+});
