@@ -33,3 +33,5 @@ router.get('/children-items', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch children items' });
   }
 });
+
+module.exports = router;
