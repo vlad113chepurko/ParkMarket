@@ -13,3 +13,13 @@ router.get('/drinks', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch drinks' });
   }
 });
+
+router.get('/souvenirs', verifyToken, async (req, res) => {
+  try {
+    const souvenirs = await Product.find({ category: 'Souvenirs' });
+    res.status(200).json(souvenirs);
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).json({ error: 'Failed to fetch souvenirs' });
+  }
+});
