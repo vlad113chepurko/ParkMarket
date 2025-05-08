@@ -35,10 +35,9 @@
 /* Products */
 
 .product-container {
-  width: 15%;
-  height: 400px;
-  padding: 1rem;
-  border: 1px solid green;
+  width: 13%;
+  height: auto;
+  border: var(--camouflage) 1px solid;
 
   display: flex;
   flex-direction: column;
@@ -52,13 +51,67 @@
 .products-container {
   width: 100%;
   height: auto;
-  border: 1px solid red;
 
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  filter: brightness(0.3);
+}
+
+.product-info-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.products-container h2 {
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  color: var(--grullo);
+}
+
+.description {
+  font-size: 1rem;
+  letter-spacing: 1.2px;
+  margin-bottom: 1rem;
+  color: var(--grullo);
+}
+
+.buy-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-container img {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  cursor: pointer;
 
-  gap: 2rem;
+  &:hover {
+    background-color: var(--camouflage);
+  }
+}
+
+.price {
+  font-size: 1.2rem;
+  color: var(--darkvanilla);
+  font-weight: bold;
 }

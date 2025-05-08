@@ -1,4 +1,5 @@
-import "../styles/Cart.css";
+import "../styles/Home.css";
+
 import Breadcrumbs from "../components/BreadCrumps";
 export default function Cart() {
   return (

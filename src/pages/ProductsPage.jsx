@@ -19,15 +19,25 @@ export default function ProductsPage() {
 
   return (
     <div className="home">
-      <h1>{category.toUpperCase()}</h1>
       <Breadcrumbs />
+      <h1>{category.toUpperCase()}</h1>
       <div className="products-container ">
         {products.map((p) => (
           <div className="product-container" key={p.id}>
-            <img src={p.src} alt={`Image: ${p.id}`} />
-            <h2>{p.title}</h2>
-            <p>${p.price}</p>
-            <button>Buy now!</button>
+            <img className="product-image" src={p.src} alt={`Image: ${p.id}`} />
+            <section className="product-info-container">
+              <h2>{p.title}</h2>
+              <p className="description">{p.description}</p>
+              <section className="buy-container">
+                <p className="price">${p.price}</p>
+                <img
+                  title="cart"
+                  className="icon"
+                  src="https://img.icons8.com/?size=100&id=9671&format=png&color=d5ccab"
+                  alt="cart"
+                />
+              </section>
+            </section>
           </div>
         ))}
       </div>

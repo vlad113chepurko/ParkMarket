@@ -1,10 +1,8 @@
 import "../styles/Register.css";
 import { Link } from "react-router-dom";
-import Breadcrumbs from "../components/BreadCrumps";
 export default function Register() {
   return (
     <div className="register">
-      <Breadcrumbs />
       <form className="register-form">
         <h1>Register</h1>
 
