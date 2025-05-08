@@ -4,16 +4,6 @@ const Product = require('../models/Products');
 const verifyToken = require('../middleware/authMiddleware');
 
 
-router.get('/', async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.status(200).json(products);
-  } catch (error) {
-    console.error('Error:', error.message);
-    res.status(500).json({ error: 'Failed to fetch products' });
-  }
-});
-
 router.post('/', verifyToken, async (req, res) => {
   try {
     const { title, description, price, category, imageURL } = req.body;
