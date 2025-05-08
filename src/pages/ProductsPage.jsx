@@ -1,7 +1,8 @@
-import "../styles/Home.css"
+import "../styles/Home.css";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useProductsStore } from "../store/useProductsStore";
+import Breadcrumbs from "../components/BreadCrumps";
 
 export default function ProductsPage() {
   const { category } = useParams();
@@ -19,6 +20,7 @@ export default function ProductsPage() {
   return (
     <div className="home">
       <h1>{category.toUpperCase()}</h1>
+      <Breadcrumbs />
       <div className="products-container ">
         {products.map((p) => (
           <div className="product-container" key={p.id}>
