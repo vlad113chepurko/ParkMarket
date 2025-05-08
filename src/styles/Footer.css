@@ -7,4 +7,7 @@
   background-color: var(--background-color);
   color: var(--darkvanilla);
   font-size: 2rem;
+
+  position: fixed;
+  bottom: 0;
 }

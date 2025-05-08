@@ -8,6 +8,8 @@
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 
+  padding: 1rem;
+
   border-bottom: var(--grullo) 2px solid;
 }
 

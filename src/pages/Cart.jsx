@@ -5,7 +5,9 @@ export default function Cart() {
   return (
     <div className="cart">
       <Breadcrumbs />
-      <h1>Cart</h1>
+      <div className="home-container">
+        <h1>Cart</h1>
+      </div>
     </div>
   );
 }
