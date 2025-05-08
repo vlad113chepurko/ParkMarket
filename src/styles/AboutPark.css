@@ -1,0 +1,30 @@
+
+
+h1, h2 {
+  color: #333;
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: var(--darkvanilla);
+}
+
+.park-media img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.park-history {
+  background-color: var(--background-color);
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+}
+
+.park-media {
+  text-align: center;
+  margin-bottom: 40px;
+}

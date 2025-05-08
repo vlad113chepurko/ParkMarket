@@ -13,6 +13,14 @@
   margin-bottom: 5px;
 }
 
+.filter h2 {
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--darkvanilla);
+  border-bottom: var(--darkvanilla) 2px solid;
+}
+
 .filter-category {
   width: auto;
   height: auto;
@@ -28,7 +36,6 @@
 .filter-category a {
   text-decoration: none;
   color: var(--grullo);
-  font-weight: bold;
 
   &:hover {
     text-decoration: underline;
