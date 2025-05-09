@@ -13,32 +13,21 @@ import { useParkPhotoStore } from "../store/useParkPhotosStore";
 import { useState, useContext } from "react";
 
 export default function Home() {
+
+  // Photo params
   const photos = useParkPhotoStore((state) => state.photos);
   const [targetPhoto, setTargetPhoto] = useState("");
   const [isZoom, setIsZoom] = useState(false);
   const [titlePohoto, setPhotoTitle] = useState("");
   const [descriptionPhoto, setDescriptionPhoto] = useState("");
 
-  const handleZoomPhoto = (e) => {
-    const src = e.target.src;
-
-    if (src.includes("Park-1")) {
-      setPhotoTitle("Park-1");
-      setDescriptionPhoto("1");
-    } else if (src.includes("Park-2")) {
-      setPhotoTitle("Park-2");
-      setDescriptionPhoto("2");
-    } else if (src.includes("Park-3")) {
-      setPhotoTitle("Park-3");
-      setDescriptionPhoto("3");
-    } else if (src.includes("Park-4")) {
-      setPhotoTitle("Park-4");
-      setDescriptionPhoto("4");
-    }
-
-    setTargetPhoto(src);
+  const handleZoomPhoto = (photo) => {
+    setTargetPhoto(photo.src);
+    setPhotoTitle(photo.title);
+    setDescriptionPhoto(photo.description);
     setIsZoom(true);
   };
+  
   return (
     <ModalContext.Provider
       value={{ isZoom, setIsZoom, targetPhoto, titlePohoto, descriptionPhoto }}
@@ -88,10 +77,11 @@ export default function Home() {
                 return (
                   <i key={index}>
                     <img
-                      onClick={handleZoomPhoto}
+                      onClick={() => handleZoomPhoto(photo)}
                       className="park-photo"
-                      src={photo}
-                      alt={`Photo - ${index}`}
+                      title={photo.description}
+                      src={photo.src}
+                      alt={photo.title}
                     />
                   </i>
                 );

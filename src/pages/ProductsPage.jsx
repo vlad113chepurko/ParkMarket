@@ -1,9 +1,12 @@
+// Hooks
 import { ModalContext } from "../context/ModalContext";
 import { useParams } from "react-router-dom";
 import { useProductsStore } from "../store/useProductsStore";
 import { useEffect, useState, useContext } from "react";
-import ReactDOM from "react-dom";
+
+// Components
 import Breadcrumbs from "../components/BreadCrumps";
+import ReactDOM from "react-dom";
 
 export default function ProductsPage() {
   const { category } = useParams();
