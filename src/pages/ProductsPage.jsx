@@ -1,6 +1,7 @@
 // Hooks
 import { ModalContext } from "../context/ModalContext";
 import { useParams } from "react-router-dom";
+import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
 import { useProductsStore } from "../store/useProductsStore";
 import { useEffect, useState, useContext } from "react";
 
@@ -9,12 +10,19 @@ import Breadcrumbs from "../components/BreadCrumps";
 import ReactDOM from "react-dom";
 
 export default function ProductsPage() {
+  // rout
   const { category } = useParams();
+
+  // useState
   const [isOpen, setIsOpen] = useState(false);
   const [modalWindowText, setModalWindowText] = useState("");
-  const setProducts = useProductsStore((state) => state.setProducts);
+
+  // Store
+  const { setProducts } = useProductsStore()
+  const { setSelectedProducts } = useSelectedProductsStore();
   const products = useProductsStore((state) => state.products);
 
+  // Response data from server [now test]
   useEffect(() => {
     fetch("/data.json")
       .then((res) => res.json())
@@ -23,16 +31,22 @@ export default function ProductsPage() {
       });
   }, [category]);
 
-  const handleBuyItem = (title) => {
+  const handleBuyItem = (product) => {
     setIsOpen(true);
-    setModalWindowText(title);
+    setModalWindowText(product.title);
 
-    setInterval(() => {
-      setIsOpen(false);
-    }, [3000]);
+    const element = ({
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      src: product.src,
+    });
 
-    return;
+    setSelectedProducts(element);
+    console.log(element);
+
   };
+
 
   return (
     <ModalContext.Provider value={{ isOpen, setIsOpen, modalWindowText }}>
@@ -52,13 +66,13 @@ export default function ProductsPage() {
                 <h2>{p.title}</h2>
                 <p className="description">{p.description}</p>
                 <section className="buy-container">
-                  <p className="price">${p.price}</p>
+                  <p className="price">{p.price} $</p>
                   <img
                     title="cart"
                     className="icon"
                     src="https://img.icons8.com/?size=100&id=9671&format=png&color=d5ccab"
                     alt="cart"
-                    onClick={() => handleBuyItem(p.title)}
+                    onClick={() => handleBuyItem(p)}
                   />
                 </section>
               </section>
