@@ -12,7 +12,7 @@ export default function Breadcrumbs() {
           <Link to={crumb.path}>
             {crumb.label}
           </Link>
-          {idx < crumbs.length - 1 && <span className="mx-2">/</span>}
+          {idx < crumbs.length - 1 && <span>/</span>}
         </span>
       ))}
     </nav>

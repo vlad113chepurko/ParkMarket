@@ -6,7 +6,7 @@
 
 .home {
   width: 100%;
-  height: auto;
+  height: 1300px;
   display: flex;
   flex-direction: column;
   background-color: var(--olive);
@@ -22,7 +22,6 @@
 .home-container {
   width: 100%;
   height: auto;
-  border: 1px solid red;
 
   display: flex;
   flex-direction: column;
