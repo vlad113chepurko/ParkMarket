@@ -149,7 +149,7 @@
   animation: move 0.5s ease-in-out;
 }
 
-.modal img {
+.close-button {
   width: 25px;
   height: 25px;
   position: absolute;

@@ -1,7 +1,5 @@
-// generateCrumbs.js
 const generateCrumbs = (location) => {
   if (!location.pathname) {
-    // Можно вернуть пустой массив или дефолтный путь
     return [{ label: "Home", path: "/" }];
   }
 

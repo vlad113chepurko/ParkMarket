@@ -1,5 +1,5 @@
 .filter {
-  height: 1000px;
+  height: auto;
   max-width: 20%;
   min-width: 10%;
   border-right: var(--darkvanilla) 2px solid;

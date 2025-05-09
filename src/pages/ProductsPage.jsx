@@ -25,8 +25,8 @@ export default function ProductsPage() {
     setModalWindowText(title);
 
     setInterval(() => {
-      setIsOpen(false)
-    }, [3000])
+      setIsOpen(false);
+    }, [3000]);
 
     return;
   };
@@ -74,11 +74,12 @@ function ModalWindow() {
   return ReactDOM.createPortal(
     <div className="modal">
       <p>{modalWindowText} added to cart!</p>
-        <img
-          onClick={() => setIsOpen(false)}
-          src="https://img.icons8.com/?size=100&id=71200&format=png&color=ec9a9a"
-          alt="close"
-        />
+      <img
+        className="close-button"
+        onClick={() => setIsOpen(false)}
+        src="https://img.icons8.com/?size=100&id=71200&format=png&color=ec9a9a"
+        alt="close"
+      />
     </div>,
     document.body
   );
