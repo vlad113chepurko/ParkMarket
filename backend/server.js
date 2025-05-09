@@ -1,7 +1,6 @@
 require('dotenv').config({ path: './backend/.env' });
 const express = require('express');
 const mongoose = require('mongoose');
-const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 
 const app = express();
@@ -14,7 +13,6 @@ mongoose.connect(process.env.MONGO_URI, {
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
-app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 
 const PORT = process.env.PORT || 3000;
