@@ -31,6 +31,7 @@ export default function ProductsPage() {
       description: product.description,
       price: product.price,
       src: product.imageURL,
+      _id: product._id,
     };
 
     setSelectedProducts(element);
@@ -46,8 +47,8 @@ export default function ProductsPage() {
         <ModalWindow />
         <h1>{category.toUpperCase()}</h1>
         <div className="products-container">
-          {products.map((p) => (
-            <div className="product-container" key={p.id}>
+          {products.map((p, index) => (
+            <div className="product-container" key={index}>
               <img
                 className="product-image"
                 src={p.imageURL}

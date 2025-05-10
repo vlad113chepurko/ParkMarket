@@ -31,13 +31,13 @@ export default function Cart() {
                 </button>
               </span>
               {selectedProducts.map((p) => (
-                <div className="cart-container" key={p.id}>
+                <div className="cart-container" key={p._id}>
                   <section className="cart-section">
                     <input type="checkbox" name="" id="" />
                     <img
                       className="cart-image"
                       src={p.src}
-                      alt={`Image: ${p.id}`}
+                      alt={`Image: ${p._id}`}
                     />
                     <article className="cart-article">
                       <h3 className="cart-title">{p.title}</h3>
@@ -51,7 +51,7 @@ export default function Cart() {
                       src="https://img.icons8.com/?size=100&id=67884&format=png&color=d5ccab"
                       alt="delete"
                       title="delete item"
-                      onClick={() => removeSelectedProduct(p.id)}
+                      onClick={() => removeSelectedProduct(p._id)}
                     />
                   </section>
                 </div>

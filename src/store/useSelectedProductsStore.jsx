@@ -13,10 +13,15 @@ export const useSelectedProductsStore = create((set) => ({
       selectedProducts: [],
     })),
 
-  removeSelectedProduct: (id) =>
-    set((state) => ({
-      selectedProducts: state.selectedProducts.filter(
-        (product) => product.id !== id
-      ),
-    })),
+  removeSelectedProduct: (_id) =>
+    set((state) => {
+      console.log("Before removal:", state.selectedProducts);
+      const updatedProducts = state.selectedProducts.filter(
+        (product) => product._id !== _id
+      );
+      console.log("After removal:", updatedProducts);
+      return {
+        selectedProducts: updatedProducts,
+      };
+    }),
 }));
