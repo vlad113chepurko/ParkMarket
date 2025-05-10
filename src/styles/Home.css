@@ -1,0 +1,171 @@
+.main-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.home {
+  width: 100%;
+  height: 1300px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--olive);
+  color: var(--darkvanilla);
+
+  padding: 1rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+.home-container {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Products */
+
+.products-container {
+  width: 100%;
+  height: 500px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-container {
+  width: 13%;
+  height: auto;
+  border: var(--camouflage) 1px solid;
+  background-color: var(--olive);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+
+  h2 {
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    z-index: 2;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.product-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.product-info-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.products-container h2 {
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  color: var(--grullo);
+}
+
+.description {
+  font-size: 1rem;
+  letter-spacing: 1.2px;
+  margin-bottom: 1rem;
+  color: var(--grullo);
+}
+
+.buy-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-container img {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--camouflage);
+  }
+}
+
+.price {
+  font-size: 1.2rem;
+  color: var(--darkvanilla);
+  font-weight: bold;
+}
+
+/* modal window */
+.modal {
+  width: 400px;
+  height: 60px;
+  z-index: 1000;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding-left: 1rem;
+
+  background-color: var(--camouflage);
+
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+
+  p {
+    font-weight: bold;
+  }
+
+  animation: move 0.5s ease-in-out;
+}
+
+.close-button {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: var(--olive);
+  }
+}
+
+@keyframes move {
+  from {
+    opacity: 0;
+    right: 0px;
+  }
+  to {
+    opacity: 1;
+    right: 10px;
+  }
+}

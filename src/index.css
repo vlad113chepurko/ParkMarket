@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./Lora-VariableFont_wght") format("ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:root {
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--darkvanilla);
+  background-color: var(--olive);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --background-color: #6a6352;
+  --darkvanilla: #d5ccab;
+  --grullo: #b4b39c;
+  --camouflage: #878568;
+  --olive: #505143;
+}

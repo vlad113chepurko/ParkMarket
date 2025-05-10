@@ -1,0 +1,44 @@
+.filter {
+  height: auto;
+  max-width: 20%;
+  min-width: 10%;
+  border-right: var(--darkvanilla) 2px solid;
+
+  padding: 0.5rem;
+}
+
+.filter h3 {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.filter h2 {
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--darkvanilla);
+  border-bottom: var(--darkvanilla) 2px solid;
+}
+
+.filter-category {
+  width: auto;
+  height: auto;
+  border-bottom: var(--darkvanilla) 2px solid;
+  padding-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.filter-category a {
+  text-decoration: none;
+  color: var(--grullo);
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

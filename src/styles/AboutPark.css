@@ -1,0 +1,74 @@
+h1,
+h2 {
+  color: var(--darkvanilla);
+  font-size: 2em;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: var(--darkvanilla);
+}
+
+.park-media img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.park-history {
+  background-color: var(--background-color);
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+}
+
+.park-media {
+  text-align: left;
+  background-color: var(--background-color);
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.park-media-photos {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+
+  gap: 2rem;
+
+  i {
+    width: 20%;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.park-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 5px 5px 10px rgba(47, 47, 47, 0.8);
+  }
+}

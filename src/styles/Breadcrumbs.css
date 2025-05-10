@@ -1,0 +1,25 @@
+.nav {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+
+  padding: 1rem;
+
+  border-bottom: var(--grullo) 2px solid;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--grullo);
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
