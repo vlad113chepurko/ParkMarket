@@ -1,19 +1,29 @@
-import { useCategoryStore } from "../store/useCategoryStore";
 import { useProductsStore } from "../store/useProductsStore";
+import { useParams } from "react-router";
+import axios from "axios";
 import { useEffect } from "react";
 
 export const useGetProducts = () => {
-  const { category } = useCategoryStore((state) => state.category);
-  const { setProducts }= useProductsStore((state) => state.setProducts);
+  const { category } = useParams();
+  const { setProducts, setIsLoaded } = useProductsStore();
 
   useEffect(() => {
-    if (!category) return;
-    fetch(`/data.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.Products[category] || []);
-      })
-      .catch((err) => console.error(err));
+    const fetchProducts = async () => {
+      try {
 
-  }, []);
-}
+        setProducts([]);
+        setIsLoaded(false);
+
+        const response = await axios.get(`http://localhost:3000/${category}`);
+        setProducts(response.data);
+        setIsLoaded(true); 
+      } catch (err) {
+        console.error("Error fetching products:", err);
+      }
+    };
+
+    if (category) {
+      fetchProducts();
+    }
+  }, [category, setProducts, setIsLoaded]);
+};

@@ -5,8 +5,8 @@ import Cart from "../pages/Cart.jsx";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
 import NotFound from "../pages/NotFound.jsx";
-import Products from "../pages/Products.jsx";
 import ProductsPage from "../pages/ProductsPage.jsx";
+import Profile from "../pages/Profile.jsx";
 
 export const components = {
   header: Header,
@@ -18,7 +18,7 @@ export const pages = {
   cart: Cart,
   login: Login,
   register: Register,
-  products: Products,
   productspages: ProductsPage,
+  profile: Profile,
   notfound: NotFound,
 };

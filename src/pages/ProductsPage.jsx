@@ -3,7 +3,8 @@ import { ModalContext } from "../context/ModalContext";
 import { useParams } from "react-router-dom";
 import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
 import { useProductsStore } from "../store/useProductsStore";
-import { useEffect, useState, useContext } from "react";
+import { useGetProducts } from "../hooks/useGetProducts";
+import { useState, useContext } from "react";
 
 // Components
 import Breadcrumbs from "../components/BreadCrumps";
@@ -18,35 +19,25 @@ export default function ProductsPage() {
   const [modalWindowText, setModalWindowText] = useState("");
 
   // Store
-  const { setProducts } = useProductsStore()
   const { setSelectedProducts } = useSelectedProductsStore();
   const products = useProductsStore((state) => state.products);
-
-  // Response data from server [now test]
-  useEffect(() => {
-    fetch("/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.Products[category] || []);
-      });
-  }, [category]);
 
   const handleBuyItem = (product) => {
     setIsOpen(true);
     setModalWindowText(product.title);
 
-    const element = ({
+    const element = {
       title: product.title,
       description: product.description,
       price: product.price,
-      src: product.src,
-    });
+      src: product.imageURL,
+    };
 
     setSelectedProducts(element);
     console.log(element);
-
   };
 
+  useGetProducts();
 
   return (
     <ModalContext.Provider value={{ isOpen, setIsOpen, modalWindowText }}>
@@ -59,8 +50,8 @@ export default function ProductsPage() {
             <div className="product-container" key={p.id}>
               <img
                 className="product-image"
-                src={p.src}
-                alt={`Image: ${p.id}`}
+                src={p.imageURL}
+                alt={`Image of ${p.title}`}
               />
               <section className="product-info-container">
                 <h2>{p.title}</h2>

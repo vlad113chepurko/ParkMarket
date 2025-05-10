@@ -11,9 +11,8 @@ function App() {
           <Route path="*" element={<pages.notfound />} />
           <Route path="/" element={<pages.home />} />
           <Route path="/cart" element={<pages.cart />} />
-          <Route path="/login" element={<pages.login />} />
-          <Route path="/register" element={<pages.register />} />
-          <Route path="/products" element={<pages.products />} />
+          <Route path="auth/login" element={<pages.login />} />
+          <Route path="/auth/register" element={<pages.register />} />
           <Route
             path="/:category"
             element={<pages.productspages />}

@@ -9,7 +9,7 @@ export default function Footer() {
           <h3>Navigation</h3>
           <Link to="/aboutus">About us</Link>
           <Link to="/profile">Profile</Link>
-          <Link to="/register">Register</Link>
+          <Link to="/auth/register">Register</Link>
           <Link to="/cart">Cart</Link>
         </section>
         <section className="footer-content-container">

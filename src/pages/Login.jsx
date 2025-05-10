@@ -6,7 +6,7 @@ import useLoginValidator  from "../hooks/useLoginValidator";
 import ErrorMessage from "../components/ErrorMessage";
 
 export default function Login() {
-  const { login, password } = useUserStore();
+  const { userLogin, userPassword } = useUserStore();
   const { setLogin, setPassword } = useUserStore();
   const { isError } = useErrorStore();
 
@@ -23,7 +23,7 @@ export default function Login() {
             type="text"
             id="login"
             onChange={(e) => setLogin(e.target.value)}
-            value={login}
+            value={userLogin}
             autoComplete="username"
             required
           />
@@ -34,13 +34,13 @@ export default function Login() {
             type="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            value={userPassword}
             autoComplete="current-password"
             required
           />
         </fieldset>
 
-        <Link to="/register">I don't have an account</Link>
+        <Link to="/auth/register">I don't have an account</Link>
 
         <button type="submit">Login</button>
       </form>

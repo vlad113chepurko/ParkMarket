@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
 export const useUserStore = create((set) => ({
-  login: "",
-  password: "",
-  email: "",
+  userLogin: "",
+  userPassword: "",
+  userEmail: "",
   repPassword: "",
-  setLogin: (login) => set({ login }),
-  setEmail: (email) => set({ email }),
-  setPassword: (password) => set({ password }),
+  setLogin: (userLogin) => set({ userLogin }),
+  setEmail: (userEmail) => set({ userEmail }),
+  setPassword: (userPassword) => set({ userPassword }),
   setRepPassword: (repPassword) => set({ repPassword }),
 }));
