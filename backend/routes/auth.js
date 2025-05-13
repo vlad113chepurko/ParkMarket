@@ -1,6 +1,6 @@
 import express from "express";
 import Users from "../models/Users.js";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ error: "Login or email already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
 
     const user = new Users({ login, email, password: hashedPassword });
     await user.save();
@@ -37,7 +37,7 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ error: "Authentication failed" });
     }
 
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = await bcryptjs.compare(password, user.password);
     if (!passwordMatch) {
       return res.status(401).json({ error: "Authentication failed" });
     }
