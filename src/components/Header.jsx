@@ -35,7 +35,7 @@ export default function Header() {
           </Link>
         </i>
         <i className="profile-icon">
-          <Link to={localStorage.getItem('token') ? '/profile' : '/auth/register'}>
+          <Link to={sessionStorage.getItem('token') ? '/profile' : '/auth/register'}>
             <img
               title="user"
               className="icon"

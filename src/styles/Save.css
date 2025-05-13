@@ -1,0 +1,43 @@
+.save-container {
+  background-color: rgb(99, 153, 107);
+  width: 100%;
+  height: 80px;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+
+  img {
+    width: 30px;
+    height: 30px;
+
+    margin-right: 1rem;
+  }
+
+  p {
+    color: var(--darkvanilla);
+  }
+}
+
+.save-changes {
+  width: 100px;
+  height: 40px;
+  background-color: var(--darkvanilla);
+  color: var(--olive);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--olive);
+    color: var(--darkvanilla);
+  }
+}

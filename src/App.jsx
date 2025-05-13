@@ -13,6 +13,7 @@ function App() {
           <Route path="/cart" element={<pages.cart />} />
           <Route path="auth/login" element={<pages.login />} />
           <Route path="/auth/register" element={<pages.register />} />
+          <Route path="/profile" element={<pages.profile />} />
           <Route
             path="/:category"
             element={<pages.productspages />}

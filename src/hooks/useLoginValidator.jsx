@@ -42,7 +42,7 @@ function useLoginValidator() {
       console.log(response.data);
 
       const token = response.data.token;
-      localStorage.setItem("token", token);
+      sessionStorage.setItem("token", token);
       navigate("/profile")
       clearError();
     } catch (error) {

@@ -1,0 +1,64 @@
+.profile-content {
+  width: 100%;
+  height: auto;
+
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.avatar-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  cursor: pointer;
+}
+
+.profile-content input:hover {
+  border: 1px solid #828282;
+}
+.profile-content input:focus {
+  border: 1px solid white;
+}
+
+.input {
+  height: 40px;
+  width: clamp(150px, 13%, 250px);
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.input-description {
+  height: 30px;
+  max-width: 200px;
+  min-width: 50px;
+  font-size: 1rem;
+
+  font-weight: normal;
+}
+
+.input-creator {
+  border: 1px solid #a1a1a1;
+}
+
+.input-creator-description {
+  border: 1px solid #a1a1a1;
+  font-weight: normal;
+}
