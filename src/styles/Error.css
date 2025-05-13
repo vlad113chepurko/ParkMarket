@@ -30,10 +30,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+
+  padding: 1rem;
+
+  gap: 1rem;
 }
 
 .error-button {
-  width: 100px;
+  width: 120px;
   height: 40px;
   background-color: var(--darkvanilla);
   color: var(--olive);

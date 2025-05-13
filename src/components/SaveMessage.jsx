@@ -1,9 +1,12 @@
 import "../styles/Save.css";
 import "../styles/Error.css";
-import { useErrorStore } from "../components/ErrorMessage";
+
+import { useSaveStore } from "../store/useSaveStore";
+import { useSaveChanges } from "../hooks/useSaveChanges";
 
 export default function SaveMessage() {
-  const { error, clearError } = useErrorStore();
+  const { setIsSave } = useSaveStore();
+  const handleSaveChanges = useSaveChanges();
   return (
     <div className="save-container">
       <section className="error-section">
@@ -11,14 +14,16 @@ export default function SaveMessage() {
           src="https://img.icons8.com/?size=100&id=31337&format=png&color=d5ccab"
           alt="alert"
         />
-        <p>{error}</p>
+        <p>Do you want to save changes?</p>
       </section>
-      <button className="save-changes">
-        Save changes
-      </button>
-      <button className="error-button" onClick={clearError}>
-        Don't save
-      </button>
+      <section className="error-section">
+        <button className="save-changes" onClick={handleSaveChanges}>
+          Save changes
+        </button>
+        <button className="error-button" onClick={() => setIsSave(false)}>
+          Don't save
+        </button>
+      </section>
     </div>
   );
 }
