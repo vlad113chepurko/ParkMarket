@@ -1,5 +1,5 @@
-import "../styles/Save.css";
-import "../styles/Error.css";
+import "../styles/components/Save.css";
+import "../styles/components/Error.css";
 
 import { useSaveStore } from "../store/useSaveStore";
 import { useSaveChanges } from "../hooks/useSaveChanges";

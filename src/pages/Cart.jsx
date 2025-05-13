@@ -1,5 +1,5 @@
-import "../styles/Home.css";
-import "../styles/Cart.css";
+import "../styles/pages/Home.css";
+import "../styles/pages/Cart.css";
 import { useNavigate } from "react-router-dom";
 import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
 import Breadcrumbs from "../components/BreadCrumps";

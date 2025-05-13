@@ -1,18 +1,21 @@
 import Breadcrumbs from "../components/BreadCrumps";
 import NoImage from "../assets/NoImage.jpeg";
 import SaveMessage from "../components/SaveMessage";
+import ConfigurationMenu from "../components/ConfigurationMenu";
 
 import handleChangeAvatar from "../hooks/handleChangeAvatar";
 import { useUserStore } from "../store/useUserStore";
 import { useSaveStore } from "../store/useSaveStore";
 import { useLoadUser } from "../hooks/useUserLoad";
+import { useState } from "react";
 
 // styles
-import "../styles/Home.css";
-import "../styles/Profile.css";
+import "../styles/pages/Home.css";
+import "../styles/pages/Profile.css";
 
 export default function Profile() {
   const { isSave, setIsSave } = useSaveStore();
+  const [isConfigurationMenu, setIsConfigurationMenu] = useState(false);
   const {
     userName,
     userDescription,
@@ -20,7 +23,6 @@ export default function Profile() {
     setUserName,
     setUserDescription,
   } = useUserStore();
-
   const isLoading = useLoadUser();
   if (isLoading) {
     return <div>Loading...</div>;
@@ -32,6 +34,21 @@ export default function Profile() {
       <Breadcrumbs />
       <div className="profile-content">
         <div className="profile-wrapper">
+          <div className="profile-configuration">
+            <button
+              className="configuration-menu-btn"
+              title="settings"
+              onClick={() => setIsConfigurationMenu((prev) => !prev)}
+            >
+              <img
+                src="https://img.icons8.com/?size=100&id=36944&format=png&color=505143"
+                alt="config"
+                width={20}
+                height={20}
+              />
+            </button>
+            {isConfigurationMenu && <ConfigurationMenu />}
+          </div>
           <i
             title="1024px by 1024px recommended"
             className="avatar-container"

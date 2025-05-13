@@ -1,4 +1,4 @@
-import "../styles/Login.css";
+import "../styles/pages/Login.css";
 import { Link } from "react-router-dom";
 import { useUserStore } from "../store/useUserStore";
 import { useErrorStore } from "../store/useErrorStore";

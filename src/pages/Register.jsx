@@ -1,4 +1,4 @@
-import "../styles/Register.css";
+import "../styles/pages/Register.css";
 import { Link } from "react-router-dom";
 import useRegisterValidator from "../hooks/useRegisterValidator";
 import { useErrorStore } from "../store/useErrorStore";

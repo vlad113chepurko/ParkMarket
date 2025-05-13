@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import "../styles/Breadcrumbs.css";
+import "../styles/components/Breadcrumbs.css";
 import generateCrumbs from "../js/generateCrumbs";
 
 export default function Breadcrumbs() {

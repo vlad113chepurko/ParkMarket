@@ -1,8 +1,13 @@
 .profile-content {
-  width: 100%;
+  width: 80%;
   height: auto;
 
-  border: 1px solid red;
+  border-radius: 5px;
+
+  background-color: var(--background-color);
+
+  margin: 0 auto;
+  margin-top: 5rem;
 
   padding: 1rem;
   gap: 0.5rem;
@@ -15,6 +20,16 @@
   align-items: center;
 
   gap: 1rem;
+}
+
+.profile-configuration {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: row;
+  position: relative;
 }
 
 .avatar-container {
@@ -65,4 +80,21 @@
 .input-creator-description {
   border: 1px solid #a1a1a1;
   font-weight: normal;
+}
+
+/* Button */
+.configuration-menu-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--darkvanilla);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
 }

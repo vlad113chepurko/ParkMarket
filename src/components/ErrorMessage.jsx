@@ -1,5 +1,5 @@
 import { useErrorStore } from "../store/useErrorStore";
-import "../styles/Error.css";
+import "../styles/components/Error.css";
 
 export default function ErrorMessage() {
   const { error, clearError } = useErrorStore();

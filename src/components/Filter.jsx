@@ -1,4 +1,4 @@
-import "../styles/Filter.css";
+import "../styles/components/Filter.css";
 import { Link } from "react-router-dom";
 
 export default function Filter() {

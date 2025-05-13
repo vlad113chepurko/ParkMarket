@@ -1,7 +1,7 @@
 // Styles
-import "../styles/Home.css";
-import "../styles/AboutPark.css";
-import "../styles/Zoom.css";
+import "../styles/pages/Home.css";
+import "../styles/components/AboutPark.css";
+import "../styles/components/Zoom.css";
 
 // Components
 import ReactDOM from "react-dom";
@@ -27,7 +27,7 @@ export default function Home() {
     setDescriptionPhoto(photo.description);
     setIsZoom(true);
   };
-  
+
   return (
     <ModalContext.Provider
       value={{ isZoom, setIsZoom, targetPhoto, titlePohoto, descriptionPhoto }}
