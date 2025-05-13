@@ -21,36 +21,38 @@ export default function Profile() {
     setUserAvatar,
   } = useUserStore();
 
-const handleChangeAvatar = async (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const formData = new FormData();
-    formData.append("avatar", file);
+  const handleChangeAvatar = async (e) => {
+    console.log("Event:", e);
+    console.log("Files:", e?.target?.files);
 
-    const token = sessionStorage.getItem("token");
+    const file = e.target.files[0];
+    if (file) {
+      const formData = new FormData();
+      formData.append("avatar", file);
 
-    const response = await fetch("http://localhost:3000/upload-avatar", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: formData,
-    });
+      const token = sessionStorage.getItem("token");
 
-    if (!response.ok) {
-      console.error("Failed to upload avatar");
-      return;
+      const response = await fetch("http://localhost:3000/upload-avatar", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        console.error("Failed to upload avatar");
+        return;
+      }
+
+      const result = await response.json();
+      setUserAvatar(result.avatarUrl);
     }
-
-    const result = await response.json();
-    setUserAvatar(result.avatarUrl);
-  }
-};
-
+  };
 
   const isLoading = useLoadUser();
-  if(isLoading) {
-    return <div>Loading...</div>
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
   return (

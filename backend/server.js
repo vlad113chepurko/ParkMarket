@@ -99,7 +99,7 @@ mongoose
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
-app.post("/upload-avatar"), async(req, res) => {
+app.post("/upload-avatar", async (req, res) => {
   try {
     const { avatarURL } = req.body;
 
@@ -119,7 +119,7 @@ app.post("/upload-avatar"), async(req, res) => {
     console.error("Error:", error.message);
     res.status(500).json({ message: "Failed to update avatar" });
   }
-};
+});
 
 app.get("/:category", async (req, res) => {
   try {
