@@ -2,6 +2,7 @@ import Breadcrumbs from "../components/BreadCrumps";
 import NoImage from "../assets/NoImage.jpeg";
 import SaveMessage from "../components/SaveMessage";
 
+import { useEffect } from "react";
 import { useUserStore } from "../store/useUserStore";
 import { useSaveStore } from "../store/useSaveStore";
 import { useLoadUser } from "../hooks/useUserLoad";
@@ -22,10 +23,13 @@ export default function Profile() {
   } = useUserStore();
 
   const handleChangeAvatar = async (e) => {
-    console.log("Event:", e);
+    setIsSave(true);
     console.log("Files:", e?.target?.files);
 
     const file = e.target.files[0];
+    const tempUrl = URL.createObjectURL(file);
+    setUserAvatar(tempUrl);
+
     if (file) {
       const formData = new FormData();
       formData.append("avatar", file);
@@ -46,7 +50,10 @@ export default function Profile() {
       }
 
       const result = await response.json();
-      setUserAvatar(result.avatarUrl);
+      console.log("Upddate result: ", result);
+
+      setUserAvatar(result.avatar);
+      URL.revokeObjectURL(tempUrl);
     }
   };
 
@@ -68,7 +75,6 @@ export default function Profile() {
           >
             <img
               id="imageElement"
-              onClick={handleChangeAvatar}
               className="avatar"
               src={userAvatar ? userAvatar : NoImage}
               alt="avatar"
@@ -89,6 +95,7 @@ export default function Profile() {
             value={userName}
             placeholder="Creator Name"
             onChange={(e) => setUserName(e.target.value)}
+            onClick={() => setIsSave(true)}
             minLength={5}
             maxLength={20}
             required
