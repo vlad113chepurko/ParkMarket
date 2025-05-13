@@ -100,7 +100,25 @@ app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
 app.post("/upload-avatar"), async(req, res) => {
-  // ...
+  try {
+    const { avatarURL } = req.body;
+
+    if (!avatarURL) {
+      return res.status(400).json({ message: "Avatar URL is required" });
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.userId, { avatar: avatarURL }, { new: true });
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "Avatar updated", avatar: updatedUser.avatar });
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ message: "Failed to update avatar" });
+  }
 };
 
 app.get("/:category", async (req, res) => {
