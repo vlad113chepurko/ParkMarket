@@ -20,3 +20,26 @@ const verifyToken = (req, res, next) => {
     return res.status(401).json({ message: "Invalid token" });
   }
 };
+
+router.put('/update', verifyToken, async (req, res) => {
+  try {
+    const { avatar, name, description, login, email, password } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.userId,
+      { avatar, name, description, login, email, password },
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "Profile updated", user: updatedUser });
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ message: "Failed to update profile" });
+  }
+});
+
+export default router;
