@@ -99,6 +99,10 @@ mongoose
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
+app.post("/upload-avatar"), async(req, res) => {
+  // ...
+};
+
 app.get("/:category", async (req, res) => {
   try {
     const categoryMap = {

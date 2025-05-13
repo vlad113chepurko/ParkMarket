@@ -21,15 +21,37 @@ export default function Profile() {
     setUserAvatar,
   } = useUserStore();
 
-  function handleChangeAvatar(e) {
-    const file = e.target.files[0];
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setUserAvatar(url);
-    }
-  }
+const handleChangeAvatar = async (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const formData = new FormData();
+    formData.append("avatar", file);
 
-  useLoadUser();
+    const token = sessionStorage.getItem("token");
+
+    const response = await fetch("http://localhost:3000/upload-avatar", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
+
+    if (!response.ok) {
+      console.error("Failed to upload avatar");
+      return;
+    }
+
+    const result = await response.json();
+    setUserAvatar(result.avatarUrl);
+  }
+};
+
+
+  const isLoading = useLoadUser();
+  if(isLoading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="home">
@@ -43,6 +65,7 @@ export default function Profile() {
             onClick={() => document.getElementById("avatarInput").click()}
           >
             <img
+              id="imageElement"
               onClick={handleChangeAvatar}
               className="avatar"
               src={userAvatar ? userAvatar : NoImage}
