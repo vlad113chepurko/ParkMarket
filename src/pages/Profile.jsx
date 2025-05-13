@@ -2,7 +2,7 @@ import Breadcrumbs from "../components/BreadCrumps";
 import NoImage from "../assets/NoImage.jpeg";
 import SaveMessage from "../components/SaveMessage";
 
-import { useEffect } from "react";
+import handleChangeAvatar from "../hooks/handleChangeAvatar";
 import { useUserStore } from "../store/useUserStore";
 import { useSaveStore } from "../store/useSaveStore";
 import { useLoadUser } from "../hooks/useUserLoad";
@@ -19,43 +19,7 @@ export default function Profile() {
     userAvatar,
     setUserName,
     setUserDescription,
-    setUserAvatar,
   } = useUserStore();
-
-  const handleChangeAvatar = async (e) => {
-    setIsSave(true);
-    console.log("Files:", e?.target?.files);
-
-    const file = e.target.files[0];
-    const tempUrl = URL.createObjectURL(file);
-    setUserAvatar(tempUrl);
-
-    if (file) {
-      const formData = new FormData();
-      formData.append("avatar", file);
-
-      const token = sessionStorage.getItem("token");
-
-      const response = await fetch("http://localhost:3000/upload-avatar", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
-
-      if (!response.ok) {
-        console.error("Failed to upload avatar");
-        return;
-      }
-
-      const result = await response.json();
-      console.log("Upddate result: ", result);
-
-      setUserAvatar(result.avatar);
-      URL.revokeObjectURL(tempUrl);
-    }
-  };
 
   const isLoading = useLoadUser();
   if (isLoading) {
