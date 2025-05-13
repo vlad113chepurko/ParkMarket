@@ -26,7 +26,7 @@ mongoose
         title: "Coca-Cola",
         category: "Drinks",
         price: 1.5,
-        description: "Refreshing soda drink",
+        description: "Another refreshing soda drink",
         imageURL:
           "https://www.coca-cola.com/content/dam/onexp/ua/uk/brands/coca-cola/coca-cola-original_bottle.jpg",
       },
@@ -99,9 +99,9 @@ mongoose
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
-app.post("/upload-avatar"), async(req, res) => {
-  // ...
-};
+// app.post("/upload-avatar"), async(req, res) => {
+//   // ...
+// };
 
 app.get("/:category", async (req, res) => {
   try {

@@ -38,7 +38,13 @@ export default function ProductsPage() {
     console.log(element);
   };
 
-  useGetProducts();
+  const isLoadingProducts = useGetProducts()
+
+  if(isLoadingProducts) {
+    return <div>Loading...</div>
+  } else {
+    isLoadingProducts
+  }
 
   return (
     <ModalContext.Provider value={{ isOpen, setIsOpen, modalWindowText }}>
