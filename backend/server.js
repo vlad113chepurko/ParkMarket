@@ -2,7 +2,12 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
+import jwt from 'jsonwebtoken';
 import Products from "./models/Products.js";
+import User from "./models/Users.js";
 
 // Routes
 import authRoutes from "./routes/auth.js";
@@ -13,6 +18,39 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
+app.use('/uploads/avatars', express.static('uploads/avatars'));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join("uploads", "avatars");
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath, { recursive: true });
+    }
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${req.userId}_${Date.now()}${path.extname(file.originalname)}`);
+  },
+});
+
+const upload = multer({ storage });
+
+const verifyToken = (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  
+  if (!token) {
+    return res.status(401).json({ message: "Access denied" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || "Secret");
+    req.userId = decoded.userId;
+    next();
+  } catch (error) {
+    console.error("Token verification error:", error.message);
+    return res.status(401).json({ message: "Invalid token" });
+  }
+};
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -99,18 +137,24 @@ mongoose
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
-app.post("/upload-avatar", async (req, res) => {
+app.post("/upload-avatar", verifyToken, upload.single("avatar"), async (req, res) => {
   try {
-    const { avatarURL } = req.body;
+    console.log("User ID from token:", req.userId);
 
-    if (!avatarURL) {
-      return res.status(400).json({ message: "Avatar URL is required" });
+    if (!req.file) {
+      return res.status(400).json({ message: "Avatar file is required" });
     }
 
+    const avatarURL = `${req.protocol}://${req.get("host")}/uploads/avatars/${req.file.filename}`;
+
     const updatedUser = await User.findByIdAndUpdate(
-      req.userId, { avatar: avatarURL }, { new: true });
+      req.userId, 
+      { avatar: avatarURL },
+      { new: true }
+    );
 
     if (!updatedUser) {
+      fs.unlinkSync(req.file.path);
       return res.status(404).json({ message: "User not found" });
     }
 
