@@ -2,8 +2,11 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import authRoutes from "./routes/auth.js";
 import Products from "./models/Products.js";
+
+// Routes
+import authRoutes from "./routes/auth.js";
+import profileRoutes from "./routes/profile.js";
 
 dotenv.config();
 const app = express();
@@ -94,6 +97,7 @@ mongoose
   });
 
 app.use("/auth", authRoutes);
+app.use("/profile", profileRoutes);
 
 app.get("/:category", async (req, res) => {
   try {

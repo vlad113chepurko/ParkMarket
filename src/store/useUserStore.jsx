@@ -1,20 +1,38 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-const userData = JSON.parse(localStorage.getItem('userData')) || {};
+export const useUserStore = create((set, get) => ({
+  // User profile
+  userName: "",
+  userDescription: "",
+  userAvatar: "",
 
-export const useUserStore = create((set) => ({
+  setUser: (user) =>
+    set({
+      userName: user.name,
+      userDescription: user.description,
+      userAvatar: user.avatar,
+    }),
+
+  setUserName: (userName) => set({ userName }),
+  setUserDescription: (userDescription) => set({ userDescription }),
+  setUserAvatar: (userAvatar) => set({ userAvatar }),
+
+  // Forma
   userLogin: "",
   userPassword: "",
   userEmail: "",
   repPassword: "",
-  userName: userData.userName|| "",
-  userDescription: userData.userDescription || "",
-  userAvatar: userData.userAvatar || "",
   setLogin: (userLogin) => set({ userLogin }),
   setEmail: (userEmail) => set({ userEmail }),
   setPassword: (userPassword) => set({ userPassword }),
   setRepPassword: (repPassword) => set({ repPassword }),
-  setUserName: (userName) => set({ userName }),
-  setUserDescription: (userDescription) => set({ userDescription }),
-  setUserAvatar: (userAvatar) => set({ userAvatar }),
+
+  updateUserDetails: (newDetails) => {
+    const currentUser = get();
+    set({
+      userName: newDetails.name || currentUser.userName,
+      userDescription: newDetails.description || currentUser.userDescription,
+      userAvatar: newDetails.avatar || currentUser.userAvatar,
+    });
+  },
 }));

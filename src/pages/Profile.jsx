@@ -4,6 +4,7 @@ import SaveMessage from "../components/SaveMessage";
 
 import { useUserStore } from "../store/useUserStore";
 import { useSaveStore } from "../store/useSaveStore";
+import { useLoadUser } from "../hooks/useUserLoad";
 
 // styles
 import "../styles/Home.css";
@@ -27,6 +28,8 @@ export default function Profile() {
       setUserAvatar(url);
     }
   }
+
+  useLoadUser();
 
   return (
     <div className="home">
