@@ -15,7 +15,7 @@ export default function ProfileHome() {
       if(userDescription) {
         setCompleted(2)
       }
- 
+
       if(userAvatar) {
         setCompleted(3)
       }
@@ -33,7 +33,7 @@ export default function ProfileHome() {
         <span className="green">{completed} of 3 complete</span>
       </article>
 
-      <section className="profile-pages-secrion">
+      <section className="profile-pages-section">
         <article className="profile-pages-article">
           <img
             src="https://img.icons8.com/?size=100&id=5401&format=png&color=b4b39c"
@@ -57,7 +57,7 @@ export default function ProfileHome() {
         </i>
       </section>
 
-      <section className="profile-pages-secrion">
+      <section className="profile-pages-section">
         <article className="profile-pages-article">
           <img
             src="https://img.icons8.com/?size=100&id=2951&format=png&color=b4b39c"
@@ -85,7 +85,7 @@ export default function ProfileHome() {
         </i>
       </section>
 
-      <section className="profile-pages-secrion">
+      <section className="profile-pages-section">
         <article className="profile-pages-article">
           <img
             src="https://img.icons8.com/?size=100&id=98957&format=png&color=b4b39c"
