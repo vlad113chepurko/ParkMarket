@@ -1,9 +1,87 @@
 .profile-pages-container {
-  width: 50%;
-  height: 500px;
+  width: 40%;
+  height: auto;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: 1rem;
   background-color: var(--background-color);
+
+  border-radius: 5px;
+
+  padding-top: 1rem;
+} 
+
+.profile-pages-top-article {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+
+  margin-bottom: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: var(--darkvanilla) 2px solid;
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.profile-pages-secrion {
+  width: 100%;
+  height: auto;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--grullo);
+  }
+}
+
+.profile-pages-article {
+  width: auto;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin-right: 1rem;
+  }
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: rgab(61, 98, 61, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.green-circle {
+  background-color: rgba(61, 98, 61, 0.5);
+}
+
+.red-circle {
+  background-color: rgba(133, 19, 40, 0.5);
 }

@@ -1,10 +1,12 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 export const useUserStore = create((set, get) => ({
   // User profile
   userName: "",
   userDescription: "",
   userAvatar: "",
+  completed: 0,
+  setCompleted: () => set((state) => ({ completed: state.completed + 1 })),
 
   setUser: (user) =>
     set({

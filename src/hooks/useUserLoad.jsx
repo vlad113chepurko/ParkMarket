@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useUserStore } from "../store/useUserStore";
 
 export const useLoadUser = () => {
-  const { setUser } = useUserStore();
+  const { setUser, userName, userDescription, userAvatar } =
+    useUserStore();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
