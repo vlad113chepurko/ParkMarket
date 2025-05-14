@@ -8,7 +8,8 @@ import fs from "fs";
 import jwt from 'jsonwebtoken';
 import Products from "./models/Products.js";
 import User from "./models/Users.js";
-import Gazebo from "./models/Gazebo.js";
+import Gazebo from "./models/Gazebos.js";
+import Bicycle from "./models/Bicycle.js";
 
 // Routes
 import authRoutes from "./routes/auth.js";
