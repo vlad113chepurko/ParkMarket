@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 import Products from "./models/Products.js";
 import User from "./models/Users.js";
 import Gazebo from "./models/Gazebos.js";
-// import Bicycle from "./models/Bicycle.js";
+import Bicycle from "./models/Bicycles.js";
 
 // Routes
 import authRoutes from "./routes/auth.js";
@@ -165,6 +165,51 @@ mongoose
 
     await Gazebo.insertMany(gazebos);
     console.log("Gazebos inserted");
+
+    await Bicycle.deleteMany({});
+    console.log("All existing bicycles deleted");
+
+    const bicycles = [
+      {
+        title: "Горный велосипед Trek",
+        description: "Отличный вариант для поездок по пересечённой местности",
+        type: "Mountain",
+        gearCount: 21,
+        hasBasket: false,
+        pricePerHour: 150,
+        imageURL: "https://www.bikethesites.com/wp-content/uploads/2023/02/Trek-Vs-Specialized-Bikes-1.png",
+      },
+      {
+        title: "Городской велосипед",
+        description: "Удобный велосипед для долгих прогулок",
+        type: "Hybrid",
+        gearCount: 7,
+        hasBasket: true,
+        pricePerHour: 100,
+        imageURL: "https://images.fravega.com/f1000/7b9d87e2cd6b924f50a81a012d693bb0.jpg",
+      },
+      {
+        title: "Электровелосипед Xiaomi",
+        description: "Электровелосипед с мощной батареей",
+        type: "Electric",
+        gearCount: 5,
+        hasBasket: false,
+        pricePerHour: 300,
+        imageURL: "https://th.bing.com/th/id/OIP.W6Nk-tEMbbMKCE_RC8sjrgHaE6?cb=iwp2&w=1188&h=788&rs=1&pid=ImgDetMain",
+      },
+      {
+        title: "Шоссейный велосипед Bianchi",
+        description: "Быстрый и лёгкий велосипед",
+        type: "Road",
+        gearCount: 18,
+        hasBasket: false,
+        pricePerHour: 200,
+        imageURL: "https://th.bing.com/th/id/R.414a145ee130550dda2d574c4d102ff1?rik=oHwzgPFEeQW8RA&riu=http%3a%2f%2fcykl.cz%2fimages%2fzpravy%2fBianchi%2fvertigo_carbon%2fbianchi_vertigo.jpg&ehk=fl1ZB%2be1TJnzWfSyNVJ2ry9aIANdClZEDf6hPdMi0es%3d&risl=&pid=ImgRaw&r=0",
+      }
+    ];
+
+    await Bicycle.insertMany(bicycles);
+    console.log("Bicycles inserted");
   })
   .catch((err) => {
     console.error(err);
@@ -243,6 +288,20 @@ app.get("/gazebos", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch gazebos" });
   }
 });
+
+app.get("/bicycles", async (req, res) => {
+  try {
+    const bicycles = await Bicycle.find();
+    if (!bicycles.length) {
+      return res.status(404).json({ error: "No bicycles found" });
+    }
+    res.status(200).json(bicycles);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Failed to fetch bicycles" });
+  }
+});
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
