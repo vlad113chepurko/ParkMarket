@@ -9,6 +9,8 @@
   background-color: var(--grullo);
   border-top: var(--darkvanilla) 2px solid;
 
+  margin-top: 20rem;
+
   padding: 1rem;
 
   p {
