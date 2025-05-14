@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
-import logo  from "../assets/logo.svg"
+import { useLoadUser } from "../hooks/useUserLoad";
+import { useUserStore } from "../store/useUserStore";
+import logo from "../assets/logo.svg";
 import "../styles/components/Header.css";
 export default function Header() {
+
+  const { userName, userAvatar } = useUserStore();
+
+  const isLoading = useLoadUser();
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <header className="header">
       <div className="logo-container">
         <Link to="/">
-          <img
-            title="home"
-            className="logo"
-            src={logo}
-            alt="logo"
-          />
+          <img title="home" className="logo" src={logo} alt="logo" />
         </Link>
       </div>
       <div className="search-bar">
@@ -34,16 +39,29 @@ export default function Header() {
             />
           </Link>
         </i>
-        <i className="profile-icon">
-          <Link to={sessionStorage.getItem('token') ? '/profile' : '/auth/register'}>
-            <img
-              title="user"
-              className="icon"
-              src="https://img.icons8.com/?size=100&id=98957&format=png&color=1A1A1A"
-              alt="user"
-            />
-          </Link>
-        </i>
+        {sessionStorage.getItem("token") ? (
+          <div className="profile-container ">
+            <Link to="/profile" className="profile-avatar-container">
+              <img className="avatar" src={userAvatar} alt="avatar" />
+            </Link>
+            <p>{userName}</p>
+          </div>
+        ) : (
+          <i className="profile-icon">
+            <Link
+              to={
+                sessionStorage.getItem("token") ? "/profile" : "/auth/register"
+              }
+            >
+              <img
+                title="user"
+                className="icon"
+                src="https://img.icons8.com/?size=100&id=98957&format=png&color=1A1A1A"
+                alt="user"
+              />
+            </Link>
+          </i>
+        )}
       </section>
     </header>
   );

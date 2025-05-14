@@ -15,6 +15,8 @@ import { useState } from "react";
 import "../styles/pages/Home.css";
 import "../styles/pages/Profile.css";
 
+
+
 export default function Profile() {
   const { isSave, setIsSave } = useSaveStore();
   const [isConfigurationMenu, setIsConfigurationMenu] = useState(false);

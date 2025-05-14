@@ -3,7 +3,7 @@ import { useUserStore } from "../store/useUserStore";
 
 export default async function handleChangeAvatar(e) {
   const { setIsSave } = useSaveStore.getState();
-  const { setUserAvatar } = useUserStore.getState();
+  const { setUserAvatar, userAvatar } = useUserStore.getState();
 
   setIsSave(true);
   console.debug("Files:", e?.target?.files);
@@ -39,7 +39,7 @@ export default async function handleChangeAvatar(e) {
     const result = await response.json();
     console.debug("Update result: ", result);
 
-    setUserAvatar(result.avatar); 
+    setUserAvatar(result.avatar);
     URL.revokeObjectURL(tempUrl);
   } catch (err) {
     console.error("Upload error:", err);
