@@ -8,6 +8,7 @@ import fs from "fs";
 import jwt from 'jsonwebtoken';
 import Products from "./models/Products.js";
 import User from "./models/Users.js";
+import Gazebo from "./models/Gazebo.js";
 
 // Routes
 import authRoutes from "./routes/auth.js";
@@ -125,10 +126,44 @@ mongoose
       },
     ];
 
-    return Products.insertMany(products);
-  })
-  .then(() => {
+    await Products.insertMany(products);
     console.log("Products inserted");
+
+    await Gazebo.deleteMany({});
+    console.log("All existing gazebos deleted");
+
+    const gazebos = [
+      {
+        title: "Беседка у озера",
+        description: "Просторная беседка с видом на озеро",
+        capacity: 15,
+        hasBarbecue: true,
+        hasHeating: false,
+        pricePerHour: 1300,
+        imageURL: "https://xpark.kyiv.ua/wp-content/uploads/2017/12/1IMG_3608.jpg",
+      },
+      {
+        title: "Семейная беседка",
+        description: "Уютная беседка для семейных посиделок",
+        capacity: 8,
+        hasBarbecue: true,
+        hasHeating: false,
+        pricePerHour: 2034,
+        imageURL: "https://th.bing.com/th/id/R.03e1e913ef8411a89d43b5b3e5bdde66?rik=Xw8oBmHjLpvwLw&pid=ImgRaw&r=0",
+      },
+      {
+        title: "Романтическая беседка",
+        description: "Небольшая беседка с декором для двоих",
+        capacity: 2,
+        hasBarbecue: true,
+        hasHeating: true,
+        pricePerHour: 2420,
+        imageURL: "https://th.bing.com/th/id/R.99cface6572fb0d4307c4a40c1a4b460?rik=Ykhm5C3dPes%2ffQ&riu=http%3a%2f%2fstatic.esosedi.org%2ffiber%2f262433%2ffit%2f1400x1000%2fbesedka_s_mangalom.png&ehk=QqudzeQ6fkD6dQnSyBaxJjnN964idU%2bcpaDAh6DqJTw%3d&risl=&pid=ImgRaw&r=0",
+      },
+    ];
+
+    await Gazebo.insertMany(gazebos);
+    console.log("Gazebos inserted");
   })
   .catch((err) => {
     console.error(err);
@@ -165,7 +200,7 @@ app.post("/upload-avatar", verifyToken, upload.single("avatar"), async (req, res
   }
 });
 
-app.get("/:category", async (req, res) => {
+app.get("/products/:category", async (req, res) => {
   try {
     const categoryMap = {
       drinks: "Drinks",
@@ -192,6 +227,19 @@ app.get("/:category", async (req, res) => {
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).json({ error: "Failed to fetch products" });
+  }
+});
+
+app.get("/gazebos", async (req, res) => {
+  try {
+    const gazebos = await Gazebo.find();
+    if (!gazebos.length) {
+      return res.status(404).json({ error: "No gazebos found" });
+    }
+    res.status(200).json(gazebos);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Failed to fetch gazebos" });
   }
 });
 
