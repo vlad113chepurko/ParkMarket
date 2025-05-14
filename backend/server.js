@@ -200,7 +200,7 @@ app.post("/upload-avatar", verifyToken, upload.single("avatar"), async (req, res
   }
 });
 
-app.get("/:category", async (req, res) => {
+app.get("/products/:category", async (req, res) => {
   try {
     const categoryMap = {
       drinks: "Drinks",
@@ -233,6 +233,9 @@ app.get("/:category", async (req, res) => {
 app.get("/gazebos", async (req, res) => {
   try {
     const gazebos = await Gazebo.find();
+    if (!gazebos.length) {
+      return res.status(404).json({ error: "No gazebos found" });
+    }
     res.status(200).json(gazebos);
   } catch (error) {
     console.error("Error:", error.message);
