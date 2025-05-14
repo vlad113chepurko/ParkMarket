@@ -165,6 +165,51 @@ mongoose
 
     await Gazebo.insertMany(gazebos);
     console.log("Gazebos inserted");
+    
+    await Bicycle.deleteMany({});
+    console.log("All existing bicycles deleted");
+
+    const bicycles = [
+      {
+        title: "Горный велосипед Trek",
+        description: "Отличный вариант для поездок по пересечённой местности",
+        type: "Mountain",
+        gearCount: 21,
+        hasBasket: false,
+        pricePerHour: 150,
+        imageURL: "https://example.com/mountain-bike.jpg",
+      },
+      {
+        title: "Городской велосипед",
+        description: "Удобный велосипед для долгих прогулок",
+        type: "Hybrid",
+        gearCount: 7,
+        hasBasket: true,
+        pricePerHour: 100,
+        imageURL: "https://example.com/city-bike.jpg",
+      },
+      {
+        title: "Электровелосипед Xiaomi",
+        description: "Электровелосипед с мощной батареей",
+        type: "Electric",
+        gearCount: 5,
+        hasBasket: false,
+        pricePerHour: 300,
+        imageURL: "https://example.com/electric-bike.jpg",
+      },
+      {
+        title: "Шоссейный велосипед Bianchi",
+        description: "Быстрый и лёгкий велосипед",
+        type: "Road",
+        gearCount: 18,
+        hasBasket: false,
+        pricePerHour: 200,
+        imageURL: "https://example.com/road-bike.jpg",
+      }
+    ];
+
+    await Bicycle.insertMany(bicycles);
+    console.log("Bicycles inserted");
   })
   .catch((err) => {
     console.error(err);
@@ -243,6 +288,20 @@ app.get("/gazebos", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch gazebos" });
   }
 });
+
+app.get("/bicycles", async (req, res) => {
+  try {
+    const bicycles = await Bicycle.find();
+    if (!bicycles.length) {
+      return res.status(404).json({ error: "No bicycles found" });
+    }
+    res.status(200).json(bicycles);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Failed to fetch bicycles" });
+  }
+});
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
