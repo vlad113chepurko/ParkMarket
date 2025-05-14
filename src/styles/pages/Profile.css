@@ -2,6 +2,8 @@
   width: 80%;
   height: auto;
 
+  border: 1px solid red;
+
   border-radius: 5px;
 
   background-color: var(--background-color);
@@ -14,6 +16,7 @@
 }
 
 .profile-wrapper {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;

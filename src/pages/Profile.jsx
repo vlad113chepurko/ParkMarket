@@ -2,8 +2,10 @@ import Breadcrumbs from "../components/BreadCrumps";
 import NoImage from "../assets/NoImage.jpeg";
 import SaveMessage from "../components/SaveMessage";
 import ConfigurationMenu from "../components/ConfigurationMenu";
+import ProfileNavigation from "../components/PorfileNavigation";
 
 import handleChangeAvatar from "../hooks/handleChangeAvatar";
+import { Outlet } from "react-router-dom";
 import { useUserStore } from "../store/useUserStore";
 import { useSaveStore } from "../store/useSaveStore";
 import { useLoadUser } from "../hooks/useUserLoad";
@@ -96,6 +98,8 @@ export default function Profile() {
           />
         </div>
       </div>
+      <ProfileNavigation />
+      <Outlet />
     </div>
   );
 }
