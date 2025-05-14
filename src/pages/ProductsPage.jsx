@@ -1,28 +1,27 @@
-// Hooks
 import { ModalContext } from "../context/ModalContext";
+import ModalWindow from "../context/ModalWindow";
 import { useParams } from "react-router-dom";
 import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
 import { useProductsStore } from "../store/useProductsStore";
 import { useGetProducts } from "../hooks/useGetProducts";
-import { useState, useContext } from "react";
-
-// Components
+import { useRef, useState } from "react";
 import Breadcrumbs from "../components/BreadCrumps";
-import ReactDOM from "react-dom";
 
 export default function ProductsPage() {
-  // rout
   const { category } = useParams();
-
-  // useState
   const [isOpen, setIsOpen] = useState(false);
   const [modalWindowText, setModalWindowText] = useState("");
+  const timeoutRef = useRef(null)
 
-  // Store
   const { setSelectedProducts } = useSelectedProductsStore();
   const products = useProductsStore((state) => state.products);
 
   const handleBuyItem = (product) => {
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
     setIsOpen(true);
     setModalWindowText(product.title);
 
@@ -35,16 +34,14 @@ export default function ProductsPage() {
     };
 
     setSelectedProducts(element);
-    console.log(element);
+
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 5000);
   };
 
-  const isLoadingProducts = useGetProducts()
-
-  if(isLoadingProducts) {
-    return <div>Loading...</div>
-  } else {
-    isLoadingProducts
-  }
+  const isLoadingProducts = useGetProducts();
+  if (isLoadingProducts) return <div>Loading...</div>;
 
   return (
     <ModalContext.Provider value={{ isOpen, setIsOpen, modalWindowText }}>
@@ -79,23 +76,5 @@ export default function ProductsPage() {
         </div>
       </div>
     </ModalContext.Provider>
-  );
-}
-
-function ModalWindow() {
-  const { isOpen, setIsOpen, modalWindowText } = useContext(ModalContext);
-  if (!isOpen) return null;
-
-  return ReactDOM.createPortal(
-    <div className="modal">
-      <p>{modalWindowText} added to cart!</p>
-      <img
-        className="close-button"
-        onClick={() => setIsOpen(false)}
-        src="https://img.icons8.com/?size=100&id=71200&format=png&color=ec9a9a"
-        alt="close"
-      />
-    </div>,
-    document.body
   );
 }

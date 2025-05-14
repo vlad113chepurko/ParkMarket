@@ -125,23 +125,25 @@
 
 /* modal window */
 .modal {
-  width: 400px;
-  height: 60px;
+  width: auto;
+  height: 50px;
   z-index: 1000;
 
-  position: absolute;
-  top: 10px;
+  position: fixed;
+  bottom: 10px;
   right: 10px;
-  padding-left: 1rem;
+  padding: 1.5rem;
 
-  background-color: var(--camouflage);
+  background-color: var(--background-color);
 
   display: flex;
   flex-direction: row;
   text-align: left;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   border-radius: 5px;
+
+  gap: 1rem;
 
   p {
     font-weight: bold;
@@ -151,11 +153,8 @@
 }
 
 .close-button {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 5px;
 
   &:hover {

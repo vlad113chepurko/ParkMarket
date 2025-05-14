@@ -37,7 +37,7 @@ const upload = multer({ storage });
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
-  
+
   if (!token) {
     return res.status(401).json({ message: "Access denied" });
   }
@@ -148,7 +148,7 @@ app.post("/upload-avatar", verifyToken, upload.single("avatar"), async (req, res
     const avatarURL = `${req.protocol}://${req.get("host")}/uploads/avatars/${req.file.filename}`;
 
     const updatedUser = await User.findByIdAndUpdate(
-      req.userId, 
+      req.userId,
       { avatar: avatarURL },
       { new: true }
     );
