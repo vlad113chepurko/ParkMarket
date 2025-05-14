@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 const bicycleSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  capacity: { type: Number, required: true },
-  hasBarbecue: { type: Boolean, default: false },
-  hasHeating: { type: Boolean, default: false },
+  type: { type: String, enum: ["Mountain", "Road", "Hybrid", "Electric"], required: true },
+  gearCount: { type: Number },
+  hasBasket: { type: Boolean, default: false },
   pricePerHour: { type: Number, required: true },
   imageURL: { type: String, required: true }
 });

@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 import Products from "./models/Products.js";
 import User from "./models/Users.js";
 import Gazebo from "./models/Gazebos.js";
-import Bicycle from "./models/Bicycle.js";
+import Bicycle from "./models/Bicycles.js";
 
 // Routes
 import authRoutes from "./routes/auth.js";
@@ -177,7 +177,7 @@ mongoose
         gearCount: 21,
         hasBasket: false,
         pricePerHour: 150,
-        imageURL: "https://example.com/mountain-bike.jpg",
+        imageURL: "https://www.bikethesites.com/wp-content/uploads/2023/02/Trek-Vs-Specialized-Bikes-1.png",
       },
       {
         title: "Городской велосипед",
@@ -186,7 +186,7 @@ mongoose
         gearCount: 7,
         hasBasket: true,
         pricePerHour: 100,
-        imageURL: "https://example.com/city-bike.jpg",
+        imageURL: "https://images.fravega.com/f1000/7b9d87e2cd6b924f50a81a012d693bb0.jpg",
       },
       {
         title: "Электровелосипед Xiaomi",
@@ -195,7 +195,7 @@ mongoose
         gearCount: 5,
         hasBasket: false,
         pricePerHour: 300,
-        imageURL: "https://example.com/electric-bike.jpg",
+        imageURL: "https://th.bing.com/th/id/OIP.W6Nk-tEMbbMKCE_RC8sjrgHaE6?cb=iwp2&w=1188&h=788&rs=1&pid=ImgDetMain",
       },
       {
         title: "Шоссейный велосипед Bianchi",
@@ -204,7 +204,7 @@ mongoose
         gearCount: 18,
         hasBasket: false,
         pricePerHour: 200,
-        imageURL: "https://example.com/road-bike.jpg",
+        imageURL: "https://th.bing.com/th/id/R.414a145ee130550dda2d574c4d102ff1?rik=oHwzgPFEeQW8RA&riu=http%3a%2f%2fcykl.cz%2fimages%2fzpravy%2fBianchi%2fvertigo_carbon%2fbianchi_vertigo.jpg&ehk=fl1ZB%2be1TJnzWfSyNVJ2ry9aIANdClZEDf6hPdMi0es%3d&risl=&pid=ImgRaw&r=0",
       }
     ];
 
