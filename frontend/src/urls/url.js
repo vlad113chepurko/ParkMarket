@@ -1,6 +1,4 @@
-// Components
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
+
 
 // Pages:
 import Cart from "../pages/Cart.jsx";
@@ -18,12 +16,6 @@ import Collections from "../pages/ProfilePages/Collections.jsx";
 import Membership from "../pages/ProfilePages/Membership.jsx";
 import Recommendations from "../pages/ProfilePages/Recommendations.jsx";
 import About from "../pages/ProfilePages/About.jsx";
-
-export const components = {
-  header: Header,
-  footer: Footer,
-
-};
 
 export const pages = {
   home: Home,

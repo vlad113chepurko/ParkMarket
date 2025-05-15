@@ -1,13 +1,16 @@
 import React from "react";
-import { components, pages, profile_pages } from "./urls/url.js";
+import { pages, profile_pages } from "./urls/url.js";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <Router>
-      <div>
-        <components.header />
+      <>
+        <Header />
         <Routes>
           <Route path="*" element={<pages.notfound />} />
           <Route path="/" element={<pages.home />} />
@@ -26,8 +29,8 @@ function App() {
             />
           </Route>
         </Routes>
-        <components.footer />
-      </div>
+        <Footer />
+      </>
     </Router>
   );
 }

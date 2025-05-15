@@ -1,0 +1,58 @@
+.menu-button {
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+
+  margin-right: 1rem;
+
+  background: none;
+  border-radius: 5px;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: var(--camouflage);
+    cursor: pointer;
+  }
+}
+
+.menu-content {
+  width: 500px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+  background-color: var(--camouflage);
+  z-index: 1002;
+
+  left: 0;
+
+  animation: moveIn 0.5s ease-in-out;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1001;
+}
+
+@keyframes moveIn {
+  from {
+    left: -500px;
+  }
+
+  to {
+    left: 0;
+  }
+}

@@ -1,23 +1,24 @@
 import React from "react";
+import Menu from "./Menu/Menu";
 import { Link } from "react-router-dom";
 import { useLoadUser } from "../hooks/useUserLoad";
 import { useUserStore } from "../store/useUserStore";
-import logo from "../assets/logo.svg";
 import "../styles/components/Header.css";
 
 export default function Header() {
   const { userName, userAvatar } = useUserStore();
 
-  const isLoading = useLoadUser();
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // const isLoading = useLoadUser();
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <header className="header">
       <div className="logo-container">
+        <Menu />
         <Link to="/">
-          <img title="home" className="logo" src={logo} alt="logo" />
+          <img title="home" className="logo" src="/logo.svg" alt="logo" />
         </Link>
       </div>
       <div className="search-bar">
