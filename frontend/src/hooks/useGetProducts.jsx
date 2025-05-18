@@ -14,7 +14,7 @@ export const useGetProducts = () => {
         setProducts([]);
         setIsLoaded(false);
 
-        const response = await axios.get(`http://localhost:3000/${category}`);
+        const response = await axios.get(`http://localhost:3000/products/${category}`);
         setProducts(response.data);
         setIsLoaded(true);
       } catch (err) {

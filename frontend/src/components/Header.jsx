@@ -3,15 +3,27 @@ import Menu from "./Menu/Menu";
 import { Link } from "react-router-dom";
 import { useLoadUser } from "../hooks/useUserLoad";
 import { useUserStore } from "../store/useUserStore";
+import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
 import "../styles/components/Header.css";
 
 export default function Header() {
   const { userName, userAvatar } = useUserStore();
+  const { counter } = useSelectedProductsStore();
 
-  // const isLoading = useLoadUser();
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
+  const isLoading = useLoadUser();
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <img
+        className="spinner"
+          src="https://img.icons8.com/?size=100&id=RnQwNiHnJRvf&format=gif&color=878568"
+          alt="loading"
+          width={50}
+          height={50}
+        />
+      </div>
+    );
+  }
 
   return (
     <header className="header">
@@ -32,6 +44,7 @@ export default function Header() {
       </div>
       <section className="icons-container">
         <i className="cart-icon">
+          <span className="count-circle">{counter}</span>
           <Link to="/cart">
             <img
               title="cart"
@@ -46,7 +59,7 @@ export default function Header() {
             <Link to="/profile" className="profile-avatar-container">
               <img className="avatar" src={userAvatar} alt="avatar" />
             </Link>
-            <p>{userName}</p>
+            <p>{userName ? userName : "anonymus"}</p>
           </div>
         ) : (
           <i className="profile-icon">

@@ -3,9 +3,8 @@ import { useSaveStore } from "../store/useSaveStore";
 
 export const useSaveChanges = () => {
   const { setIsSave } = useSaveStore();
-  const { userName, userDescription, userAvatar, setCompleted } =
+  const { userName, userDescription, userAvatar, setCompleted, setUser } =
     useUserStore();
-
 
   const handleSave = async () => {
     const token = sessionStorage.getItem("token");
@@ -32,11 +31,13 @@ export const useSaveChanges = () => {
         return;
       }
       console.log("Response data:", result.user);
-      console.log("Updated user: ", response.user);
+
+      setUser(result.user);
+
       let count = 0;
-      if (result.name?.trim()) count++;
-      if (result.description?.trim()) count++;
-      if (result.avatar?.trim()) count++;
+      if (userName) count++;
+      if (userDescription) count++;
+      if (userAvatar) count++;
       setCompleted(count);
     } catch (err) {
       console.error(err);
@@ -47,5 +48,5 @@ export const useSaveChanges = () => {
     setIsSave(false);
   };
 
-  return handleSave
+  return handleSave;
 };

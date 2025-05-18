@@ -9,6 +9,8 @@
   justify-content: center;
   align-items: center;
 
+  gap: 5rem;
+
   background-color: var(--grullo);
 
   border-bottom: var(--darkvanilla) 2px solid;
@@ -24,7 +26,7 @@
 }
 
 .logo {
-  width: 180px;
+  width: 150px;
   height: 150px;
   border-radius: 5px;
 
@@ -41,8 +43,6 @@
   max-width: 60%;
   min-width: 40%;
   height: 50px;
-  margin-right: 1rem;
-  margin-left: 1rem;
 }
 
 .search-button {
@@ -161,4 +161,21 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.count-circle {
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+
+  transform: translate(60%, -50% );
+
+  border-radius: 100%;
+
+  background-color: var(--camouflage);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -41,7 +41,18 @@ export default function ProductsPage() {
   };
 
   const isLoadingProducts = useGetProducts();
-  if (isLoadingProducts) return <div>Loading...</div>;
+  if (isLoadingProducts)
+    return (
+      <div className="loading">
+        <img
+          className="spinner"
+          src="https://img.icons8.com/?size=100&id=RnQwNiHnJRvf&format=gif&color=878568"
+          alt="loading"
+          width={50}
+          height={50}
+        />
+      </div>
+    );
 
   return (
     <ModalContext.Provider value={{ isOpen, setIsOpen, modalWindowText }}>
@@ -52,11 +63,13 @@ export default function ProductsPage() {
         <div className="products-container">
           {products.map((p, index) => (
             <div className="product-container" key={index}>
-              <img
-                className="product-image"
-                src={p.imageURL}
-                alt={`Image of ${p.title}`}
-              />
+              <i className="product-image-container">
+                <img
+                  className="product-image"
+                  src={p.imageURL}
+                  alt={`Image of ${p.title}`}
+                />
+              </i>
               <section className="product-info-container">
                 <h2>{p.title}</h2>
                 <p className="description">{p.description}</p>

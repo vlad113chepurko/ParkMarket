@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { ModalContext } from "./ModalContext";
 import ReactDOM from "react-dom";
@@ -18,7 +19,7 @@ export default function ModalWindow() {
         <p>{modalWindowText} added to cart!</p>
       </article>
       <img
-        className="close-button"
+        className="close-button-modal"
         onClick={() => setIsOpen(false)}
         src="https://img.icons8.com/?size=100&id=71200&format=png&color=ec9a9a"
         alt="close"

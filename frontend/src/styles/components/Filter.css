@@ -1,10 +1,6 @@
 .filter {
   height: auto;
-  max-width: 20%;
-  min-width: 10%;
-  border-right: var(--darkvanilla) 2px solid;
-
-  padding: 0.5rem;
+  width: 100%;
 }
 
 .filter h3 {
@@ -18,14 +14,15 @@
   margin-bottom: 1rem;
   text-align: center;
   color: var(--darkvanilla);
-  border-bottom: var(--darkvanilla) 2px solid;
 }
 
 .filter-category {
   width: auto;
   height: auto;
+  border-top: var(--darkvanilla) 2px solid;
   border-bottom: var(--darkvanilla) 2px solid;
-  padding-bottom: 1rem;
+
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;

@@ -6,9 +6,8 @@ import "../styles/components/Zoom.css";
 
 // Components
 import ReactDOM from "react-dom";
-import Filter from "../components/Filter";
 
-// React
+// Hooks/Context
 import { ModalContext } from "../context/ModalContext";
 import { useParkPhotoStore } from "../store/useParkPhotosStore";
 import { useState, useContext } from "react";
@@ -34,7 +33,6 @@ export default function Home() {
     >
       <div className="main-wrapper">
         {isZoom ? <Zoom /> : null}
-        <Filter />
         <div className="home">
           <h1>Welcome to Our Park!</h1>
           <div className="park-history">
@@ -82,6 +80,7 @@ export default function Home() {
                       title={photo.description}
                       src={photo.src}
                       alt={photo.title}
+                      loading="lazy"
                     />
                   </i>
                 );
