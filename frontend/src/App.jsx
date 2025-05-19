@@ -18,6 +18,7 @@ function App() {
           <Route path="auth/login" element={<pages.login />} />
           <Route path="/auth/register" element={<pages.register />} />
           <Route path="/:category" element={<pages.productspages />} />
+          <Route path="order" element={<pages.order />} />
           <Route path="/profile" element={<pages.profile />}>
             <Route path="home" element={<profile_pages.home />} />
             <Route path="collection" element={<profile_pages.collection />} />

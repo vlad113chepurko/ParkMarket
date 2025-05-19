@@ -8,6 +8,7 @@ import NotFound from "../pages/NotFound.jsx";
 import ProductsPage from "../pages/ProductsPage.jsx";
 import Profile from "../pages/Profile.jsx";
 import Home from "../pages/Home.jsx";
+import Order from "../pages/Order.jsx";
 
 // Profile Pages:
 import ProfileHome from "../pages/ProfilePages/Home.jsx";
@@ -24,6 +25,7 @@ export const pages = {
   register: Register,
   productspages: ProductsPage,
   profile: Profile,
+  order: Order,
   notfound: NotFound,
 };
 

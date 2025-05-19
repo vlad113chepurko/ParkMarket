@@ -5,7 +5,7 @@ import "../styles/components/AboutPark.css";
 import "../styles/components/Zoom.css";
 
 import { motion } from "motion/react";
-import { useNavigate } from "react-router"
+import { useNavigate } from "react-router";
 
 // Components
 import ReactDOM from "react-dom";
@@ -47,7 +47,16 @@ export default function Home() {
                 available functions such as - ordering a bike, electric scooter,
                 gazebo by the lake.
               </p>
-              <button className="order-button ">I wanna take order!</button>
+              <button
+                onClick={() =>
+                  navigate(
+                    sessionStorage.getItem("token") ? "/order" : "/auth/login"
+                  )
+                }
+                className="order-button "
+              >
+                I wanna take order!
+              </button>
             </article>
           </section>
           <section className="order-container-side">
@@ -71,26 +80,31 @@ export default function Home() {
               <h2>Park Market</h2>
               <h3>Relax with style. Live in the rhythm of the city.</h3>
               <p>
-                <strong>ParkZone</strong> — это современная зона отдыха в центре
-                города, где ты можешь вырваться из рутины и провести день на
-                природе с комфортом. What do we have:
-                <ul>
-                  <li>Аренда электросамокатов и велосипедов</li>
-                  <li>Просторные палатки и теневые зоны</li>
-                  <li>Кофе, снеки и уютная атмосфера</li>
-                  <li>Chill-зоны с музыкой и вечерними лампами</li>
-                  <li>Настолки, активности, мини-квесты</li>
-                  <p>
-                    Located next to Shevchenko Park - just 5 minutes walk from
-                    the center. Come with friends, family or alone with nature -
-                    we have time and place for everyone.
-                  </p>
-                  <p>
-                    <strong>ParkZone - move, relax, enjoy.</strong>
-                  </p>
-                </ul>
+                <strong>ParkZone</strong> — This is a modern recreation area in
+                the city center, where you can escape from the routine and spend
+                a day in nature with comfort. What do we have:
               </p>
-              <button onClick={() => navigate('/about-us')} className="order-button ">Read more about us!</button>
+              <ul>
+                <li>Electric scooter and bicycle rental</li>
+                <li>Spacious tents and shaded areas</li>
+                <li>Coffee, snacks and a cozy atmosphere</li>
+                <li>Chill zones with music and evening lamps</li>
+                <li>Board games, activities, mini-quests</li>
+              </ul>
+              <p>
+                Located next to Shevchenko Park - just 5 minutes walk from the
+                center. Come with friends, family or alone with nature - we have
+                time and place for everyone.
+              </p>
+              <p>
+                <strong>ParkZone - move, relax, enjoy.</strong>
+              </p>
+              <button
+                onClick={() => navigate("/about-us")}
+                className="order-button "
+              >
+                Read more about us!
+              </button>
             </article>
           </section>
         </motion.section>

@@ -42,6 +42,18 @@ export default function MenuContainer() {
         <div>
           <Filter />
         </div>
+        <section className="menu-functions">
+          <button
+            className="order-button"
+            onClick={() =>
+              navigate(
+                sessionStorage.getItem("token") ? "/order" : "/auth/login"
+              )
+            }
+          >
+            I want to order service
+          </button>
+        </section>
         <section>
           {sessionStorage.getItem("token") ? (
             <div className="menu-user-section">

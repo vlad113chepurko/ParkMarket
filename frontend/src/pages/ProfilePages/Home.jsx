@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/pages/ProfilePages.css";
 import { useUserStore } from "../../store/useUserStore";
+
 export default function ProfileHome() {
   const { userName, userDescription, userAvatar, completed } = useUserStore();
 
