@@ -11,6 +11,8 @@
 
   gap: 5rem;
 
+  margin-bottom: 5rem;
+
   background-color: var(--grullo);
 
   border-bottom: var(--darkvanilla) 2px solid;

@@ -1,22 +1,21 @@
 .main-wrapper {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .home {
   width: 100%;
-  height: 1300px;
+  height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: var(--olive);
   color: var(--darkvanilla);
 
-  padding: 1rem;
-
-  h1 {
-    margin-bottom: 1rem;
-  }
+  margin-bottom: 5rem;
 }
 
 .home-container {
