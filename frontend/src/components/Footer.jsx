@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-content">
         <section className="footer-content-container">
           <h3>Navigation</h3>
-          <Link to="/aboutus">About us</Link>
+          <Link to="/about-us">About us</Link>
           <Link
             to={sessionStorage.getItem("token") ? "/profile" : "/auth/login"}
           >
