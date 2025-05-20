@@ -1,10 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React from "react";  
 import { NavLink } from "react-router-dom";
 import "../styles/components/ProfileNavigation.css";
 
 export default function ProfileNavigation() {
-  const [activeLink, setActiveLink] = useState("Home");
 
   const navItems = [
     { path: "home", label: "Home" },

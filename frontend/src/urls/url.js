@@ -10,6 +10,11 @@ import Profile from "../pages/Profile.jsx";
 import Home from "../pages/Home.jsx";
 import Order from "../pages/Order.jsx";
 
+// Order Pages:
+import Bike from "../pages/OrderPages/Bike.jsx";
+import Gazebo from "../pages/OrderPages/Gazebo.jsx";
+import Scooter from "../pages/OrderPages/Scooter.jsx";
+
 // Profile Pages:
 import ProfileHome from "../pages/ProfilePages/Home.jsx";
 import Shop from "../pages/ProfilePages/Shop.jsx";
@@ -27,6 +32,12 @@ export const pages = {
   profile: Profile,
   order: Order,
   notfound: NotFound,
+};
+
+export const order_pages = {
+  gazebo: Gazebo,
+  bike: Bike,
+  scooter: Scooter
 };
 
 export const profile_pages = {

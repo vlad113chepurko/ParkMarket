@@ -1,0 +1,19 @@
+{
+  "orderItems": [
+    {
+      "path": "gazebo",
+      "label": "Order a gazebo",
+      "description": "Book a cozy gazebo near the lake to relax with friends or family. Perfect for picnics, celebrations, or just chilling in nature."
+    },
+    {
+      "path": "bike",
+      "label": "Order a bike",
+      "description": "Rent a bicycle and explore the park's scenic routes. A fun and healthy way to enjoy your day outdoors."
+    },
+    {
+      "path": "scooter",
+      "label": "Order an electric scooter",
+      "description": "Get around fast and effortlessly with our electric scooters. Eco-friendly, easy to use, and a blast to ride!"
+    }
+  ]
+}

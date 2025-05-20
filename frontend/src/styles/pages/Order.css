@@ -3,23 +3,31 @@
   height: 100%;
 
 
-  border: 1px solid red;
+  background-color: var(--background-color);
+
+  border-radius: 5px;
+
+  padding: 1rem;
+
+  gap: 1rem;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
 }
 
 .order-cart {
-  width: 200px;
-  height: 500px;
-
-  border: 1px solid blue;
-
+  flex: 1 1 300px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  height: 100%;
 }

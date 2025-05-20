@@ -1,5 +1,5 @@
 import React from "react";
-import { pages, profile_pages } from "./urls/url.js";
+import { pages, profile_pages, order_pages } from "./urls/url.js";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -18,7 +18,11 @@ function App() {
           <Route path="auth/login" element={<pages.login />} />
           <Route path="/auth/register" element={<pages.register />} />
           <Route path="/:category" element={<pages.productspages />} />
-          <Route path="order" element={<pages.order />} />
+          <Route path="order" element={<pages.order />}>
+            <Route path="gazebo" element={<order_pages.gazebo />} />
+            <Route path="bike" element={<order_pages.bike />} />
+            <Route path="scooter" element={<order_pages.scooter />} />
+          </Route>
           <Route path="/profile" element={<pages.profile />}>
             <Route path="home" element={<profile_pages.home />} />
             <Route path="collection" element={<profile_pages.collection />} />
