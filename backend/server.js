@@ -10,6 +10,7 @@ import Products from "./models/Products.js";
 import User from "./models/Users.js";
 import Gazebo from "./models/Gazebos.js";
 import Bicycle from "./models/Bicycles.js";
+import Scooter from "./models/Scooters.js";
 
 // Routes
 import authRoutes from "./routes/auth.js";
@@ -210,6 +211,51 @@ mongoose
 
     await Bicycle.insertMany(bicycles);
     console.log("Bicycles inserted");
+
+    await Scooter.deleteMany({});
+    console.log("All existing scooters deleted");
+
+    const scooters = [
+      {
+        title: "Xiaomi Mi Electric Scooter",
+        description: "Складной электросамокат с запасом хода до 30 км",
+        maxSpeed: 25,
+        batteryRange: 30,
+        hasHelmet: true,
+        pricePerHour: 250,
+        imageURL: "https://xiaomiplanet.sk/wp-content/uploads/2020/03/xiaomi-mi-electric-scooter-xiaomiplanet-foto-cover.jpg",
+      },
+      {
+        title: "Segway Ninebot",
+        description: "Мощный самокат с хорошей амортизацией",
+        maxSpeed: 30,
+        batteryRange: 40,
+        hasHelmet: false,
+        pricePerHour: 430,
+        imageURL: "https://th.bing.com/th/id/OIP.Src0lZrJ8PW2TraAYOaNWQHaHa?cb=iwp2&w=1500&h=1500&rs=1&pid=ImgDetMain",
+      },
+      {
+        title: "Kugoo S3 Pro",
+        description: "Бюджетный вариант с дальностью 25 км",
+        maxSpeed: 30,
+        batteryRange: 25,
+        hasHelmet: false,
+        pricePerHour: 265,
+        imageURL: "https://th.bing.com/th/id/R.38675f0149ae823929579ffd0b61cf54?rik=84YjIgvJy0Q5rA&pid=ImgRaw&r=0",
+      },
+      {
+        title: "Dualtron Mini",
+        description: "Продвинутый самокат с двойным приводом и дальностью 50 км",
+        maxSpeed: 45,
+        batteryRange: 50,
+        hasHelmet: true,
+        pricePerHour: 600,
+        imageURL: "https://th.bing.com/th/id/OIP.wb0S80dYdC2CNlAZm_LWrwAAAA?cb=iwp2&pid=ImgDet&w=452&h=584&rs=1",
+      }
+    ];
+
+    await Scooter.insertMany(scooters);
+    console.log("Scooters inserted");
   })
   .catch((err) => {
     console.error(err);
