@@ -348,6 +348,19 @@ app.get("/order/bike", async (req, res) => {
   }
 });
 
+app.get("/order/scooter", async (req, res) => {
+  try {
+    const scooters = await Scooter.find();
+    if (!scooters.length) {
+      return res.status(404).json({ error: "No scooters found" });
+    }
+    res.status(200).json(scooters);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Failed to fetch scooters" });
+  }
+});
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
