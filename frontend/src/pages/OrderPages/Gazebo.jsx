@@ -4,6 +4,7 @@ export default function Gazebo() {
   return (
     <div className="home">
       <Breadcrumbs />
+      <h1>Gazebo</h1>
     </div>
   );
 }

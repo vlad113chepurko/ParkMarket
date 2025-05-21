@@ -1,6 +1,10 @@
 import React from "react";
 import Breadcrumbs from "../../components/BreadCrumps";
 export default function Scooter() {
-  <Breadcrumbs />;
-  return <div className="home"></div>;
+  return (
+    <div className="home">
+      <Breadcrumbs />
+      <h1>Scooter</h1>
+    </div>
+  );
 }

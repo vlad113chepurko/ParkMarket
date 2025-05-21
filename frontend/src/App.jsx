@@ -18,11 +18,10 @@ function App() {
           <Route path="auth/login" element={<pages.login />} />
           <Route path="/auth/register" element={<pages.register />} />
           <Route path="/:category" element={<pages.productspages />} />
-          <Route path="order" element={<pages.order />}>
-            <Route path="gazebo" element={<order_pages.gazebo />} />
-            <Route path="bike" element={<order_pages.bike />} />
-            <Route path="scooter" element={<order_pages.scooter />} />
-          </Route>
+          <Route path="order" element={<pages.order />} />
+          <Route path="/order/gazebo" element={<order_pages.gazebo />} />
+          <Route path="/order/bike" element={<order_pages.bike />} />
+          <Route path="/order/scooter" element={<order_pages.scooter />} />
           <Route path="/profile" element={<pages.profile />}>
             <Route path="home" element={<profile_pages.home />} />
             <Route path="collection" element={<profile_pages.collection />} />
