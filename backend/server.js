@@ -136,8 +136,8 @@ mongoose
 
     const gazebos = [
       {
-        title: "Беседка у озера",
-        description: "Просторная беседка с видом на озеро",
+        title: "Gazebo by the lake",
+        description: "Spacious gazebo overlooking the lake",
         capacity: 15,
         hasBarbecue: true,
         hasHeating: false,
@@ -146,8 +146,8 @@ mongoose
           "https://xpark.kyiv.ua/wp-content/uploads/2017/12/1IMG_3608.jpg",
       },
       {
-        title: "Семейная беседка",
-        description: "Уютная беседка для семейных посиделок",
+        title: "Family gazebo",
+        description: "Cozy gazebo for family gatherings",
         capacity: 8,
         hasBarbecue: true,
         hasHeating: false,
@@ -156,8 +156,8 @@ mongoose
           "https://th.bing.com/th/id/R.03e1e913ef8411a89d43b5b3e5bdde66?rik=Xw8oBmHjLpvwLw&pid=ImgRaw&r=0",
       },
       {
-        title: "Романтическая беседка",
-        description: "Небольшая беседка с декором для двоих",
+        title: "Romantic gazebo",
+        description: "A small gazebo with decor for two people",
         capacity: 2,
         hasBarbecue: true,
         hasHeating: true,
@@ -175,8 +175,8 @@ mongoose
 
     const bicycles = [
       {
-        title: "Горный велосипед Trek",
-        description: "Отличный вариант для поездок по пересечённой местности",
+        title: "Trek mountain bike",
+        description: "A great option for cross-country travel",
         type: "Mountain",
         gearCount: 21,
         hasBasket: false,
@@ -185,8 +185,8 @@ mongoose
           "https://www.bikethesites.com/wp-content/uploads/2023/02/Trek-Vs-Specialized-Bikes-1.png",
       },
       {
-        title: "Городской велосипед",
-        description: "Удобный велосипед для долгих прогулок",
+        title: "City bike",
+        description: "A comfortable bike for long rides",
         type: "Hybrid",
         gearCount: 7,
         hasBasket: true,
@@ -195,8 +195,8 @@ mongoose
           "https://images.fravega.com/f1000/7b9d87e2cd6b924f50a81a012d693bb0.jpg",
       },
       {
-        title: "Электровелосипед Xiaomi",
-        description: "Электровелосипед с мощной батареей",
+        title: "Xiaomi electric bike",
+        description: "Electric bike with a powerful battery",
         type: "Electric",
         gearCount: 5,
         hasBasket: false,
@@ -205,8 +205,8 @@ mongoose
           "https://th.bing.com/th/id/OIP.W6Nk-tEMbbMKCE_RC8sjrgHaE6?cb=iwp2&w=1188&h=788&rs=1&pid=ImgDetMain",
       },
       {
-        title: "Шоссейный велосипед Bianchi",
-        description: "Быстрый и лёгкий велосипед",
+        title: "Bianchi road bike",
+        description: "Fast and lightweight bike",
         type: "Road",
         gearCount: 18,
         hasBasket: false,
@@ -225,7 +225,7 @@ mongoose
     const scooters = [
       {
         title: "Xiaomi Mi Electric Scooter",
-        description: "Складной электросамокат с запасом хода до 30 км",
+        description: "Folding electric scooter with a range of up to 30 km",
         maxSpeed: 25,
         batteryRange: 30,
         hasHelmet: true,
@@ -235,7 +235,7 @@ mongoose
       },
       {
         title: "Segway Ninebot",
-        description: "Мощный самокат с хорошей амортизацией",
+        description: "Powerful scooter with good shock absorption",
         maxSpeed: 30,
         batteryRange: 40,
         hasHelmet: false,
@@ -244,7 +244,7 @@ mongoose
       },
       {
         title: "Kugoo S3 Pro",
-        description: "Бюджетный вариант с дальностью 25 км",
+        description: "Budget option with a range of 25 km",
         maxSpeed: 30,
         batteryRange: 25,
         hasHelmet: false,
@@ -255,7 +255,7 @@ mongoose
       {
         title: "Dualtron Mini",
         description:
-          "Продвинутый самокат с двойным приводом и дальностью 50 км",
+          "Advanced scooter with dual drive and a range of 50 km",
         maxSpeed: 45,
         batteryRange: 50,
         hasHelmet: true,
