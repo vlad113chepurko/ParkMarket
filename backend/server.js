@@ -322,7 +322,7 @@ app.get("/products/:category", async (req, res) => {
   }
 });
 
-app.get("/gazebos", async (req, res) => {
+app.get("/order/gazebos", async (req, res) => {
   try {
     const gazebos = await Gazebo.find();
     if (!gazebos.length) {
@@ -335,7 +335,7 @@ app.get("/gazebos", async (req, res) => {
   }
 });
 
-app.get("/bicycles", async (req, res) => {
+app.get("/order/bike", async (req, res) => {
   try {
     const bicycles = await Bicycle.find();
     if (!bicycles.length) {

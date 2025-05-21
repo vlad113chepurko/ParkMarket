@@ -19,7 +19,7 @@ function App() {
           <Route path="/auth/register" element={<pages.register />} />
           <Route path="/:category" element={<pages.productspages />} />
           <Route path="order" element={<pages.order />} />
-          <Route path="/order/gazebo" element={<order_pages.gazebo />} />
+          <Route path="/order/gazebos" element={<order_pages.gazebo />} />
           <Route path="/order/bike" element={<order_pages.bike />} />
           <Route path="/order/scooter" element={<order_pages.scooter />} />
           <Route path="/profile" element={<pages.profile />}>
