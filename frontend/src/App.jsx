@@ -21,7 +21,7 @@ function App() {
           <Route path="order" element={<pages.order />} />
           <Route path="/order/gazebos" element={<order_pages.gazebo />} />
           <Route path="/order/bike" element={<order_pages.bike />} />
-          <Route path="/order/scooter" element={<order_pages.scooter />} />
+          <Route path="/order/scooters" element={<order_pages.scooter />} />
           <Route path="/profile" element={<pages.profile />}>
             <Route path="home" element={<profile_pages.home />} />
             <Route path="collection" element={<profile_pages.collection />} />

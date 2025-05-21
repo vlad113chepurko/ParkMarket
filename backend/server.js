@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 import Products from "./models/Products.js";
 import User from "./models/Users.js";
 import Gazebo from "./models/Gazebos.js";
@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
-app.use('/uploads/avatars', express.static('uploads/avatars'));
+app.use("/uploads/avatars", express.static("uploads/avatars"));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -39,7 +39,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization?.split(' ')[1];
+  const token = req.headers.authorization?.split(" ")[1];
 
   if (!token) {
     return res.status(401).json({ message: "Access denied" });
@@ -142,7 +142,8 @@ mongoose
         hasBarbecue: true,
         hasHeating: false,
         pricePerHour: 1300,
-        imageURL: "https://xpark.kyiv.ua/wp-content/uploads/2017/12/1IMG_3608.jpg",
+        imageURL:
+          "https://xpark.kyiv.ua/wp-content/uploads/2017/12/1IMG_3608.jpg",
       },
       {
         title: "Семейная беседка",
@@ -151,7 +152,8 @@ mongoose
         hasBarbecue: true,
         hasHeating: false,
         pricePerHour: 2034,
-        imageURL: "https://th.bing.com/th/id/R.03e1e913ef8411a89d43b5b3e5bdde66?rik=Xw8oBmHjLpvwLw&pid=ImgRaw&r=0",
+        imageURL:
+          "https://th.bing.com/th/id/R.03e1e913ef8411a89d43b5b3e5bdde66?rik=Xw8oBmHjLpvwLw&pid=ImgRaw&r=0",
       },
       {
         title: "Романтическая беседка",
@@ -160,7 +162,8 @@ mongoose
         hasBarbecue: true,
         hasHeating: true,
         pricePerHour: 2420,
-        imageURL: "https://th.bing.com/th/id/R.99cface6572fb0d4307c4a40c1a4b460?rik=Ykhm5C3dPes%2ffQ&riu=http%3a%2f%2fstatic.esosedi.org%2ffiber%2f262433%2ffit%2f1400x1000%2fbesedka_s_mangalom.png&ehk=QqudzeQ6fkD6dQnSyBaxJjnN964idU%2bcpaDAh6DqJTw%3d&risl=&pid=ImgRaw&r=0",
+        imageURL:
+          "https://th.bing.com/th/id/R.99cface6572fb0d4307c4a40c1a4b460?rik=Ykhm5C3dPes%2ffQ&riu=http%3a%2f%2fstatic.esosedi.org%2ffiber%2f262433%2ffit%2f1400x1000%2fbesedka_s_mangalom.png&ehk=QqudzeQ6fkD6dQnSyBaxJjnN964idU%2bcpaDAh6DqJTw%3d&risl=&pid=ImgRaw&r=0",
       },
     ];
 
@@ -178,7 +181,8 @@ mongoose
         gearCount: 21,
         hasBasket: false,
         pricePerHour: 150,
-        imageURL: "https://www.bikethesites.com/wp-content/uploads/2023/02/Trek-Vs-Specialized-Bikes-1.png",
+        imageURL:
+          "https://www.bikethesites.com/wp-content/uploads/2023/02/Trek-Vs-Specialized-Bikes-1.png",
       },
       {
         title: "Городской велосипед",
@@ -187,7 +191,8 @@ mongoose
         gearCount: 7,
         hasBasket: true,
         pricePerHour: 100,
-        imageURL: "https://images.fravega.com/f1000/7b9d87e2cd6b924f50a81a012d693bb0.jpg",
+        imageURL:
+          "https://images.fravega.com/f1000/7b9d87e2cd6b924f50a81a012d693bb0.jpg",
       },
       {
         title: "Электровелосипед Xiaomi",
@@ -196,7 +201,8 @@ mongoose
         gearCount: 5,
         hasBasket: false,
         pricePerHour: 300,
-        imageURL: "https://th.bing.com/th/id/OIP.W6Nk-tEMbbMKCE_RC8sjrgHaE6?cb=iwp2&w=1188&h=788&rs=1&pid=ImgDetMain",
+        imageURL:
+          "https://th.bing.com/th/id/OIP.W6Nk-tEMbbMKCE_RC8sjrgHaE6?cb=iwp2&w=1188&h=788&rs=1&pid=ImgDetMain",
       },
       {
         title: "Шоссейный велосипед Bianchi",
@@ -205,8 +211,9 @@ mongoose
         gearCount: 18,
         hasBasket: false,
         pricePerHour: 200,
-        imageURL: "https://th.bing.com/th/id/R.414a145ee130550dda2d574c4d102ff1?rik=oHwzgPFEeQW8RA&riu=http%3a%2f%2fcykl.cz%2fimages%2fzpravy%2fBianchi%2fvertigo_carbon%2fbianchi_vertigo.jpg&ehk=fl1ZB%2be1TJnzWfSyNVJ2ry9aIANdClZEDf6hPdMi0es%3d&risl=&pid=ImgRaw&r=0",
-      }
+        imageURL:
+          "https://th.bing.com/th/id/R.414a145ee130550dda2d574c4d102ff1?rik=oHwzgPFEeQW8RA&riu=http%3a%2f%2fcykl.cz%2fimages%2fzpravy%2fBianchi%2fvertigo_carbon%2fbianchi_vertigo.jpg&ehk=fl1ZB%2be1TJnzWfSyNVJ2ry9aIANdClZEDf6hPdMi0es%3d&risl=&pid=ImgRaw&r=0",
+      },
     ];
 
     await Bicycle.insertMany(bicycles);
@@ -223,7 +230,8 @@ mongoose
         batteryRange: 30,
         hasHelmet: true,
         pricePerHour: 250,
-        imageURL: "https://xiaomiplanet.sk/wp-content/uploads/2020/03/xiaomi-mi-electric-scooter-xiaomiplanet-foto-cover.jpg",
+        imageURL:
+          "https://xiaomiplanet.sk/wp-content/uploads/2020/03/xiaomi-mi-electric-scooter-xiaomiplanet-foto-cover.jpg",
       },
       {
         title: "Segway Ninebot",
@@ -232,7 +240,7 @@ mongoose
         batteryRange: 40,
         hasHelmet: false,
         pricePerHour: 430,
-        imageURL: "https://th.bing.com/th/id/OIP.Src0lZrJ8PW2TraAYOaNWQHaHa?cb=iwp2&w=1500&h=1500&rs=1&pid=ImgDetMain",
+        imageURL: "https://ninebot-ua.com/i/Product/158/6784d4b24c849.jpg",
       },
       {
         title: "Kugoo S3 Pro",
@@ -241,17 +249,20 @@ mongoose
         batteryRange: 25,
         hasHelmet: false,
         pricePerHour: 265,
-        imageURL: "https://th.bing.com/th/id/R.38675f0149ae823929579ffd0b61cf54?rik=84YjIgvJy0Q5rA&pid=ImgRaw&r=0",
+        imageURL:
+          "https://th.bing.com/th/id/R.38675f0149ae823929579ffd0b61cf54?rik=84YjIgvJy0Q5rA&pid=ImgRaw&r=0",
       },
       {
         title: "Dualtron Mini",
-        description: "Продвинутый самокат с двойным приводом и дальностью 50 км",
+        description:
+          "Продвинутый самокат с двойным приводом и дальностью 50 км",
         maxSpeed: 45,
         batteryRange: 50,
         hasHelmet: true,
         pricePerHour: 600,
-        imageURL: "https://th.bing.com/th/id/OIP.wb0S80dYdC2CNlAZm_LWrwAAAA?cb=iwp2&pid=ImgDet&w=452&h=584&rs=1",
-      }
+        imageURL:
+          "https://th.bing.com/th/id/OIP.wb0S80dYdC2CNlAZm_LWrwAAAA?cb=iwp2&pid=ImgDet&w=452&h=584&rs=1",
+      },
     ];
 
     await Scooter.insertMany(scooters);
@@ -264,33 +275,42 @@ mongoose
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
-app.post("/upload-avatar", verifyToken, upload.single("avatar"), async (req, res) => {
-  try {
-    console.log("User ID from token:", req.userId);
+app.post(
+  "/upload-avatar",
+  verifyToken,
+  upload.single("avatar"),
+  async (req, res) => {
+    try {
+      console.log("User ID from token:", req.userId);
 
-    if (!req.file) {
-      return res.status(400).json({ message: "Avatar file is required" });
+      if (!req.file) {
+        return res.status(400).json({ message: "Avatar file is required" });
+      }
+
+      const avatarURL = `${req.protocol}://${req.get("host")}/uploads/avatars/${
+        req.file.filename
+      }`;
+
+      const updatedUser = await User.findByIdAndUpdate(
+        req.userId,
+        { avatar: avatarURL },
+        { new: true }
+      );
+
+      if (!updatedUser) {
+        fs.unlinkSync(req.file.path);
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      res
+        .status(200)
+        .json({ message: "Avatar updated", avatar: updatedUser.avatar });
+    } catch (error) {
+      console.error("Error:", error.message);
+      res.status(500).json({ message: "Failed to update avatar" });
     }
-
-    const avatarURL = `${req.protocol}://${req.get("host")}/uploads/avatars/${req.file.filename}`;
-
-    const updatedUser = await User.findByIdAndUpdate(
-      req.userId,
-      { avatar: avatarURL },
-      { new: true }
-    );
-
-    if (!updatedUser) {
-      fs.unlinkSync(req.file.path);
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    res.status(200).json({ message: "Avatar updated", avatar: updatedUser.avatar });
-  } catch (error) {
-    console.error("Error:", error.message);
-    res.status(500).json({ message: "Failed to update avatar" });
   }
-});
+);
 
 app.get("/products/:category", async (req, res) => {
   try {
@@ -348,7 +368,7 @@ app.get("/order/bike", async (req, res) => {
   }
 });
 
-app.get("/order/scooter", async (req, res) => {
+app.get("/order/scooters", async (req, res) => {
   try {
     const scooters = await Scooter.find();
     if (!scooters.length) {
@@ -360,7 +380,6 @@ app.get("/order/scooter", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch scooters" });
   }
 });
-
 
 const PORT = 3000;
 app.listen(PORT, () => {
