@@ -13,6 +13,9 @@ import { useProductsStore } from "../store/useProductsStore";
 import { useGetProducts } from "../hooks/useGetProducts";
 import { useRef, useState } from "react";
 
+// libs
+import { nanoid } from "nanoid";
+
 export default function ProductsPage() {
   const { category } = useParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -23,11 +26,11 @@ export default function ProductsPage() {
   const products = useProductsStore((state) => state.products);
 
   const handleBuyItem = (product) => {
+    const randomId = nanoid();
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
 
-    setIsOpen(true);
     setModalWindowText(product.title);
 
     const element = {
@@ -35,10 +38,13 @@ export default function ProductsPage() {
       description: product.description,
       price: product.price,
       src: product.imageURL,
-      _id: product._id,
+      _id: randomId,
     };
 
     setSelectedProducts(element);
+    setIsOpen(true);
+
+    console.debug(element._id);
 
     timeoutRef.current = setTimeout(() => {
       setIsOpen(false);

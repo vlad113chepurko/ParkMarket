@@ -1,27 +1,39 @@
 import { create } from "zustand";
 
-export const useSelectedProductsStore = create((set) => ({
+const getInitialCart = () => {
+  const stored = localStorage.getItem("cart");
+  return stored ? JSON.parse(stored) : [];
+};
 
-  selectedProducts: [],
-  counter: 0,
+export const useSelectedProductsStore = create((set) => ({
+  selectedProducts: getInitialCart(),
+  counter: getInitialCart().length,
 
   setSelectedProducts: (newProduct) =>
-    set((state) => ({
-      selectedProducts: [...state.selectedProducts, newProduct],
-      counter: state.counter + 1,
-    })),
+    set((state) => {
+      const updated = [...state.selectedProducts, newProduct];
+      localStorage.setItem("cart", JSON.stringify(updated));
+      return {
+        selectedProducts: updated,
+        counter: updated.length,
+      };
+    }),
 
   clearSelectedProducts: () =>
-    set(() => ({
-      selectedProducts: [],
-      counter: 0,
-    })),
+    set(() => {
+      localStorage.removeItem("cart");
+      return {
+        counter: 0,
+        selectedProducts: [],
+      };
+    }),
 
   removeSelectedProduct: (_id) =>
     set((state) => {
       const updatedProducts = state.selectedProducts.filter(
         (product) => product._id !== _id
       );
+      localStorage.setItem("cart", JSON.stringify(updatedProducts))
       return {
         selectedProducts: updatedProducts,
         counter: updatedProducts.length,

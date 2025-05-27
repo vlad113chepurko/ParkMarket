@@ -18,6 +18,7 @@ function App() {
           <Route path="auth/login" element={<pages.login />} />
           <Route path="/auth/register" element={<pages.register />} />
           <Route path="/:category" element={<pages.productspages />} />
+          <Route path="/thankpage" element={<pages.thankpage />} />
           <Route path="order" element={<pages.order />} />
           <Route path="/order/gazebos" element={<order_pages.gazebo />} />
           <Route path="/order/bike" element={<order_pages.bike />} />

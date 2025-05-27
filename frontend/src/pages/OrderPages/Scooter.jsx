@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 // libs
 import { motion } from "motion/react";
+import { nanoid } from "nanoid";
 import axios from "axios";
 
 export default function Scooter() {
@@ -32,12 +33,13 @@ export default function Scooter() {
   }, [scooters]);
 
   const handleBuyItem = (p) => {
+    const randomId = nanoid();
     const element = {
       title: p.title,
       description: p.description,
       price: p.pricePerHour,
       src: p.imageURL,
-      _id: p._id,
+      _id: randomId,
     };
     console.debug("Selected, product: ", element);
 

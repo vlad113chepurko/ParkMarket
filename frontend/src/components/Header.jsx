@@ -15,7 +15,7 @@ export default function Header() {
     return (
       <div className="loading">
         <img
-        className="spinner"
+          className="spinner"
           src="https://img.icons8.com/?size=100&id=RnQwNiHnJRvf&format=gif&color=878568"
           alt="loading"
           width={50}
@@ -57,7 +57,7 @@ export default function Header() {
         {sessionStorage.getItem("token") ? (
           <div className="profile-container ">
             <Link to="/profile" className="profile-avatar-container">
-              <img className="avatar" src={userAvatar} alt="avatar" />
+              <img className="avatar" src={userAvatar ? userAvatar : "/Anonymous_emblem.svg.png"} alt="avatar" />
             </Link>
             <p>{userName ? userName : "anonymus"}</p>
           </div>

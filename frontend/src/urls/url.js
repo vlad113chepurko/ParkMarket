@@ -9,6 +9,7 @@ import ProductsPage from "../pages/ProductsPage.jsx";
 import Profile from "../pages/Profile.jsx";
 import Home from "../pages/Home.jsx";
 import Order from "../pages/Order.jsx";
+import ThankPage from "../pages/ThankPage.jsx";
 
 // Order Pages:
 import Bike from "../pages/OrderPages/Bike.jsx";
@@ -31,6 +32,7 @@ export const pages = {
   productspages: ProductsPage,
   profile: Profile,
   order: Order,
+  thankpage: ThankPage,
   notfound: NotFound,
 };
 

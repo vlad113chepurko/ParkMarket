@@ -23,7 +23,7 @@ export default function Cart() {
   return (
     <div className="home">
       <Breadcrumbs />
-      {isOrder && <OrderForm />}
+      {isOrder && <OrderForm setIsOrder={setIsOrder}/>}
       <div className="home-container">
         <h1>Cart</h1>
 
@@ -43,7 +43,7 @@ export default function Cart() {
               {selectedProducts.map((p) => (
                 <div className="cart-container" key={p._id}>
                   <section className="cart-section">
-                    <input type="checkbox" name="" id="" />
+                    <input type="checkbox"/>
                     <img
                       className="cart-image"
                       src={p.src}

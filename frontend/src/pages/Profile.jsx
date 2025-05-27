@@ -1,6 +1,5 @@
 import React from "react";
 import Breadcrumbs from "../components/BreadCrumps";
-import NoImage from "../assets/NoImage.jpeg";
 import SaveMessage from "../components/SaveMessage";
 import ConfigurationMenu from "../components/ConfigurationMenu";
 import ProfileNavigation from "../components/PorfileNavigation";
@@ -61,7 +60,7 @@ export default function Profile() {
             <img
               id="imageElement"
               className="avatar"
-              src={userAvatar ? userAvatar : NoImage}
+              src={userAvatar ? userAvatar : "Anonymous_emblem.svg"}
               alt="avatar"
             />
           </i>

@@ -9,6 +9,7 @@ import { useSelectedProductsStore } from "../../store/useSelectedProductsStore";
 // libs
 import axios from "axios";
 import { motion } from "motion/react";
+import { nanoid } from "nanoid";
 
 export default function Gazebo() {
   const [gazebos, setGazebos] = useState([]);
@@ -29,12 +30,13 @@ export default function Gazebo() {
   }, []);
 
   const handleBuyItem = (p) => {
+    const randomId = nanoid();
     const element = {
       title: p.title,
       description: p.description,
       price: p.pricePerHour,
       src: p.imageURL,
-      _id: p._id,
+      _id: randomId,
     };
     console.debug("Selected, product: ", element);
 
