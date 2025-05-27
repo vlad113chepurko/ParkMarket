@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { useLoadUser } from "../hooks/useUserLoad";
 import { useUserStore } from "../store/useUserStore";
 import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
+import { useNavigate } from "react-router-dom";
 import "../styles/components/Header.css";
 
 export default function Header() {
   const { userName, userAvatar } = useUserStore();
   const { counter } = useSelectedProductsStore();
+  const navigate = useNavigate();
 
   const isLoading = useLoadUser();
   if (isLoading) {
@@ -45,20 +47,27 @@ export default function Header() {
       <section className="icons-container">
         <i className="cart-icon">
           <span className="count-circle">{counter}</span>
-          <Link to="/cart">
+          <i onClick={() => navigate("/cart")} to="/cart">
             <img
               title="cart"
               className="icon"
               src="https://img.icons8.com/?size=100&id=ii6Lr4KivOiE&format=png&color=1A1A1A"
               alt="cart"
             />
-          </Link>
+          </i>
         </i>
         {sessionStorage.getItem("token") ? (
           <div className="profile-container ">
-            <Link to="/profile" className="profile-avatar-container">
-              <img className="avatar" src={userAvatar ? userAvatar : "/Anonymous_emblem.svg.png"} alt="avatar" />
-            </Link>
+            <i
+              onClick={() => navigate("/profile")}
+              className="profile-avatar-container"
+            >
+              <img
+                className="avatar"
+                src={userAvatar ? userAvatar : "/Anonymous_emblem.svg.png"}
+                alt="avatar"
+              />
+            </i>
             <p>{userName ? userName : "anonymus"}</p>
           </div>
         ) : (
