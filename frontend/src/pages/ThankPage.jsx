@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 export default function ThankPage() {
   const navigate = useNavigate();
   return (
-    <div className="home">
+    <div className="thank-container">
       <h1>Thank you for order!</h1>
-      <button onClick={() => navigate("/")}>Go to home page</button>
+      <button className="thanks-button" onClick={() => navigate("/")}>
+        Go to home page
+      </button>
     </div>
   );
 }
