@@ -1,20 +1,29 @@
+// components
 import React from "react";
+import Breadcrumbs from "../components/BreadCrumps";
+import OrderForm from "../components/OrderForm";
+
+// styles
 import "../styles/pages/Home.css";
 import "../styles/pages/Cart.css";
+
+// hooks
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
-import Breadcrumbs from "../components/BreadCrumps";
 
 export default function Cart() {
   const { selectedProducts, clearSelectedProducts, removeSelectedProduct } =
     useSelectedProductsStore();
   const navigate = useNavigate();
 
+  const [isOrder, setIsOrder] = useState(false);
   const totalPrice = selectedProducts.reduce((acc, p) => acc + p.price, 0);
 
   return (
     <div className="home">
       <Breadcrumbs />
+      {isOrder && <OrderForm />}
       <div className="home-container">
         <h1>Cart</h1>
 
@@ -60,7 +69,10 @@ export default function Cart() {
               <span className="delete-all-container">
                 <div className="but-container">
                   <p className="total">Total: {totalPrice.toFixed(2)} $</p>
-                  <button>Buy</button>
+                  <button onClick={() => setIsOrder(true)}>Buy</button>
+                  <button onClick={() => navigate("/drinks")}>
+                    Add more
+                  </button>
                 </div>
               </span>
             </div>

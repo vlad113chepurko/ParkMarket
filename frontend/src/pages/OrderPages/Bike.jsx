@@ -1,10 +1,19 @@
+// components
 import React from "react";
 import Breadcrumbs from "../../components/BreadCrumps";
+
+// hooks
+import { useSelectedProductsStore } from "../../store/useSelectedProductsStore";
 import { useEffect, useState } from "react";
+
+// libs
 import { motion } from "motion/react";
 import axios from "axios";
+
 export default function Bike() {
   const [bikes, setBikes] = useState([]);
+  const { setSelectedProducts } = useSelectedProductsStore();
+
   useEffect(() => {
     const fetchBikes = async () => {
       try {
@@ -20,15 +29,25 @@ export default function Bike() {
     fetchBikes();
   }, []);
 
-  useEffect(() => {
-    console.log(bikes);
-  }, [bikes]);
+  const handleBuyItem = (p) => {
+    const element = {
+      title: p.title,
+      description: p.description,
+      price: p.pricePerHour,
+      src: p.imageURL,
+      _id: p._id,
+    };
+    console.debug("Selected, product: ", element);
+
+    setSelectedProducts(element);
+  };
 
   return (
     <motion.div
-    initial={{opacity: 0}}
-    whileInView={{opacity: 1}}
-    className="home">
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      className="home"
+    >
       <Breadcrumbs />
       <h1>Bike</h1>
       <div className="order-items-wrapper">
@@ -68,7 +87,12 @@ export default function Bike() {
                   <p>{item.hasBasket ? "Yes" : "No"}</p>
                 </section>
               </div>
-              <button className="order-button-item">Buy</button>
+              <button
+                onClick={() => handleBuyItem(item)}
+                className="order-button-item"
+              >
+                Buy
+              </button>
             </section>
           );
         })}

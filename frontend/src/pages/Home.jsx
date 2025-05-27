@@ -2,7 +2,6 @@ import React from "react";
 // Styles
 import "../styles/pages/Home.css";
 import "../styles/components/AboutPark.css";
-import "../styles/components/Zoom.css";
 
 import { motion } from "motion/react";
 import { useNavigate } from "react-router";

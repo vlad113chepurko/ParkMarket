@@ -1,0 +1,36 @@
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 998;
+}
+
+.order-form {
+  width: 500px;
+  height: 500px;
+
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 1002;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

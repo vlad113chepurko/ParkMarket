@@ -7,17 +7,15 @@
 
 .home {
   width: 100%;
-  min-height: 500px;
-  border: 1px solid red;
   height: auto;
+  min-height: 1000px;
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   background-color: var(--olive);
   color: var(--darkvanilla);
 
   padding: 1rem;
-
-  margin-bottom: 5rem;
 
   h1 {
     margin-bottom: 1rem;

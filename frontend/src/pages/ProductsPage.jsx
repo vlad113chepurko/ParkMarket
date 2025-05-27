@@ -1,12 +1,17 @@
+// components
 import React from "react";
-import { ModalContext } from "../context/ModalContext";
+import Breadcrumbs from "../components/BreadCrumps";
 import ModalWindow from "../context/ModalWindow";
+
+// context
+import { ModalContext } from "../context/ModalContext";
+
+// hooks
 import { useParams } from "react-router-dom";
 import { useSelectedProductsStore } from "../store/useSelectedProductsStore";
 import { useProductsStore } from "../store/useProductsStore";
 import { useGetProducts } from "../hooks/useGetProducts";
 import { useRef, useState } from "react";
-import Breadcrumbs from "../components/BreadCrumps";
 
 export default function ProductsPage() {
   const { category } = useParams();

@@ -1,10 +1,18 @@
+// components
 import React from "react";
 import Breadcrumbs from "../../components/BreadCrumps";
+
+// hooks
 import { useEffect, useState } from "react";
+import { useSelectedProductsStore } from "../../store/useSelectedProductsStore";
+
+// libs
 import axios from "axios";
 import { motion } from "motion/react";
+
 export default function Gazebo() {
   const [gazebos, setGazebos] = useState([]);
+  const { setSelectedProducts } = useSelectedProductsStore();
 
   useEffect(() => {
     const fetchGazebos = async () => {
@@ -20,15 +28,25 @@ export default function Gazebo() {
     fetchGazebos();
   }, []);
 
-  useEffect(() => {
-    console.log(gazebos);
-  }, [gazebos]);
+  const handleBuyItem = (p) => {
+    const element = {
+      title: p.title,
+      description: p.description,
+      price: p.pricePerHour,
+      src: p.imageURL,
+      _id: p._id,
+    };
+    console.debug("Selected, product: ", element);
+
+    setSelectedProducts(element);
+  };
 
   return (
     <motion.div
-    initial={{opacity: 0}}
-    whileInView={{opacity: 1}}
-    className="home">
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      className="home"
+    >
       <Breadcrumbs />
       <h1>Gazebo</h1>
       <div className="order-items-wrapper">
@@ -68,7 +86,12 @@ export default function Gazebo() {
                   <p>{item.hasHeating ? "Yes" : "No"}</p>
                 </section>
               </div>
-              <button className="order-button-item">Buy</button>
+              <button
+                onClick={() => handleBuyItem(item)}
+                className="order-button-item"
+              >
+                Buy
+              </button>
             </section>
           );
         })}
